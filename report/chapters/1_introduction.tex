@@ -1,0 +1,58 @@
+\section{Introduction and Data Exploration}
+\label{sec:1_introduction}
+
+\subsection{Overview}
+The classification of vehicle acceptability is a significant challenge in automotive retail data mining. This report presents a comprehensive comparative analysis of multiple classification algorithms applied to the "Car Evaluation" dataset. Following the guidelines set in MCDA-5580, our primary focus is to transition from baseline heuristic evaluations to robust, production-ready machine learning pipelines. 
+
+While this study explores a suite of algorithms including K-Nearest Neighbors (KNN), Support Vector Machines (SVM), and Artificial Neural Networks (ANN), Extreme Gradient Boosting (XGBoost), the \textbf{Random Forest Classifier (RF)} serves as a mandatory benchmark. Preliminary analysis established critical baselines using ensemble methods RF, which identified the hierarchical importance of safety and seating capacity in determining consumer sentiment. \autoref{fig:feature_importance}
+
+\begin{wrapfigure}{r}{0.4\textwidth}
+	\centering
+	\includegraphics[width=0.9\linewidth]{figures/rf_feature_imp.png}
+	\caption{Feature importance in predicting car acceptability} 
+	\label{fig:feature_importance}
+\end{wrapfigure}
+
+\subsection{Data Exploration and Preprocessing}
+The dataset comprises 1,728 instances with six categorical input features. As highlighted in the project tutorials (Tut3), these attributes represent technical and financial characteristics:
+\begin{itemize}
+	\item \textbf{Financial Factors:} Buying Price and Maintenance Cost (categorized from 'vhigh' to 'low').
+	\item \textbf{Physical Capacity:} Number of Doors (2 to 5+) and Seating Capacity (2, 4, or more).
+	\item \textbf{Utility and Safety:} Boot Size (small, med, big) and Safety rating (low, med, high).
+\end{itemize}
+
+\subsection{Target Variable Distribution}
+The target variable, \textit{shouldBuy}, is divided into four classes: \textit{unacc, acc, good,} and \textit{vgood}. Analysis reveals a significant class imbalance, with approximately 70\% of records classified as "unacceptable." \ref{fig:class_distrib} This skew necessitates the use of F1-Macro as our primary evaluation metric to ensure the model does not achieve high accuracy by simply ignoring minority classes such as "very good."
+
+\subsection{Random Forest Baseline Insights}
+Consistent with the findings in the baseline Random Forest report, vehicle safety and capacity (number of seats) emerged as the dominant predictors. The \autoref{tab:mutual_info_gain} further indicates the mutual information can be extracted from the labels from \textit{Scikit-learn} library, a completely different method indicated the similar results. 
+
+
+\begin{table}[H]
+	\centering
+	\begin{minipage}[t]{0.3\textwidth}  % Table on left
+		\centering
+		\begin{tabular}{lS[table-format=1.6]}
+			\toprule
+			\textbf{Feature} & {\textbf{Information Gain}} \\
+			\midrule
+			safety          & 0.181732 \\
+			seats           & 0.152259 \\
+			price           & 0.066853 \\
+			maintenance     & 0.051088 \\
+			storage         & 0.020800 \\
+			doors           & 0.003109 \\
+			\bottomrule
+		\end{tabular}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.5\textwidth}  % Image on right
+		\centering
+		\includegraphics[width=\linewidth]{figures/class_distrib.png}
+		\label{fig:class_distrib}
+	\end{minipage}
+	\caption{Feature Importance via Information Gain}
+	\label{tab:mutual_info_gain}
+\end{table}
+
+Thus consistently prioritizes "Safety" as the root node. If a car is rated with "low" safety, it is immediately categorized as "unacceptable" regardless of its price or maintenance cost. This logical hierarchy formed the basis for our advanced pipeline development, ensuring that our automated encoders preserved these ordinal relationships.

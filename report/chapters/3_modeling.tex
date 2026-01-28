@@ -1,0 +1,26 @@
+\section{Methodology and System Architecture}
+\label{sec:3_method}
+This study transitioned from static heuristic models to an automated, high-performance classification framework designed for end-to-end reproducibility.
+
+\subsection{Computational Environment}
+Experiments were executed on a high-end workstation optimized for data-intensive tasks (see \autoref{tab:experimental_setup} in \autoref{sec:app_a}). To ensure environment stability and dependency integrity, a Python 3.10 virtual environment was utilized. This configuration facilitated exhaustive cross-validation and a large-scale stress test on \textbf{100,000 synthetic records}—generated to simulate high-volume real-world data—with minimal latency.
+
+\subsection{Modular Pipeline Design}
+A key contribution is the development of a modular Scikit-Learn pipeline that automates the transformation of categorical strings into machine-readable tensors.
+
+
+
+The preprocessing architecture consists of three specialized stages:
+\begin{enumerate}
+	\item \textbf{CarDataCleaner:} Ensures feature consistency and string standardization.
+	\item \textbf{CarDataImputer:} Implements a "most\_frequent" strategy to handle data gaps, a critical component for the stress test containing 5,000 missing values per feature.
+	\item \textbf{CarDataEncoder:} Employs a hybrid strategy using Ordinal Mapping for hierarchical features (e.g., Price, Maintenance) and One-Hot Encoding for nominal attributes.
+\end{enumerate}
+
+\subsection{Validation Strategy and Experimental Design}
+To achieve high statistical significance, a \textbf{Repeated Stratified K-Fold} validation strategy was employed with 10 repeats and 9 splits, totaling \textbf{90 folds}. This method mitigates "sampling luck" inherent in standard 80/20 splits, providing a robust distribution of F1-Macro and Accuracy metrics to assess algorithmic stability across varying data conditions.
+
+
+
+\subsection{Data Isolation (Vault Set)}
+A 10\% "Vault" set (173 records) was fully sequestered from the training and validation phases. This holdout set provides an unbiased final generalization benchmark before the models are subjected to the production-scale 100,000-record simulation. (Detailed results are provided in \autoref{sec:app_a}).

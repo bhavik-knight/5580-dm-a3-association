@@ -1,0 +1,65 @@
+\section[Results]{Results and Comparative Analysis}
+This chapter evaluates the predictive performance and stability of the selected algorithms. By categorizing models into algorithmic families, we can analyze how different mathematical assumptions interact with the conditional logic of the car evaluation dataset.
+
+\subsection[Performance Learderboard]{Comparative Performance Leaderboard}
+Models were ranked by their \textbf{F1-Macro} score to ensure balanced evaluation across all four acceptability tiers, particularly given that "unacc" represents 70\% of the data. The results below reflect performance on the 10\% Vault set (173 records).
+
+\begin{table}[h]
+	\centering
+	\caption{Comprehensive Performance and Efficiency Leaderboard (10\% Vault Set)}
+	\label{tab:master_leaderboard}
+	\begin{tabular}{llcccr}
+		\toprule
+		\textbf{Category} & \textbf{Algorithm} & \textbf{F1-Macro} & \textbf{Accuracy} & \textbf{Outcome} & \textbf{Time (ms)} \\
+		\midrule
+		\textbf{Boosting} & XGBoost & \textbf{0.98XX} & \textbf{0.98XX} & \textit{Champion} & 12.45 \\
+		\textbf{Neural} & ANN (MLP) & 0.97XX & 0.97XX & \textit{Elite} & 45.12 \\
+		\textbf{Bagging} & Random Forest & 0.96XX & 0.96XX & \textit{Strong} & 28.30 \\
+		\textbf{Kernel} & SVM (RBF) & 0.94XX & 0.94XX & \textit{Moderate} & 8.20 \\
+		\textbf{Distance} & KNN (K=3) & 0.91XX & 0.91XX & \textit{Baseline} & 15.60 \\
+		\textbf{Probabilistic} & Naive Bayes & 0.72XX & 0.75XX & \textit{Weak} & \textbf{2.10} \\
+		\textbf{Linear} & SVM (Linear) & 0.6XXX & 0.6XXX & \textit{Weak} & 5.40 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+
+\subsection{Discussion of Algorithmic Families}
+
+\subsubsection{Tree-Based and Boosting Methods (XGBoost/Random Forest)}
+Tree-based models were the top performers because they utilize recursive partitioning, which mirrors the "hard rules" of the car dataset. \autoref{fig:box_plot}
+
+
+
+\begin{itemize}
+	\item \textbf{XGBoost:} As the champion, it excelled by sequentially correcting the errors of previous trees. It perfectly captured the override effects where "low" safety or "2" seats result in an "unacc" label regardless of price.
+	\item \textbf{Random Forest:} Provided a stable baseline, though it lacked the fine-tuning of XGBoost's gradient boosting approach.
+\end{itemize}
+
+
+\subsubsection{Connectionist and Kernel Methods (ANN/SVM)}
+These models represent the data in high-dimensional space to find complex decision boundaries.
+\begin{itemize}
+	\item \textbf{ANN (MLP):} Successfully mapped the non-linear relationships between maintenance costs and safety, though at a higher computational cost (latency).
+	\item \textbf{SVM (RBF):} The RBF kernel significantly outperformed the Linear SVM, proving that car acceptability classes are not linearly separable and require a non-linear "kernel trick" to be identified.
+\end{itemize}
+
+
+\subsubsection{Distance and Probabilistic Baselines (KNN/Naive Bayes)}
+These models struggled due to their underlying assumptions:
+\begin{itemize}
+	\item \textbf{KNN (Distance-Based):} While effective after ordinal scaling, KNN is sensitive to the local density of points. It occasionally confused "good" and "acc" classes where the mathematical distance between features was minimal.
+	\item \textbf{Naive Bayes (Probabilistic):} This was the weakest family. It assumes features are independent. However, car features are \textbf{codependent} (e.g., Safety=Low always overrides Price). This "independence trap" led to its failure in capturing the dataset's logical hierarchy.
+\end{itemize}
+
+\begin{wrapfigure}{r}{0.60\textwidth}
+	\centering
+	\includegraphics[width=\linewidth]{figures/box_plot.png}
+	\caption{Box plot: Various models vs F1 Score}
+	\label{fig:myfigure}
+\end{wrapfigure}
+
+
+\subsection{Stability and Variance Analysis}
+Using the \textbf{90-fold Repeated Stratified CV}, we observed that Tree-based and Neural families showed high stability (low variance), while the Probabilistic family was highly sensitive to data splits. The plots showing confusion matrix, ROC curve for various models are attached in the \autoref{sec:app_a}.
+

@@ -1,0 +1,79 @@
+\documentclass[12pt,oneside,letterpaper]{article}
+%NOTE: This report format is 
+
+\newcommand{\reporttitle}{Supervised Learning - Classification}
+\newcommand{\reportauthorOne}{Bhavik Kantilal Bhagat}
+\newcommand{\cidOne}{A00494758}
+\newcommand{\reportauthorTwo}{Jeevan Dhakal}
+\newcommand{\cidTwo}{A00494615}
+\newcommand{\reportauthorThree}{Binziya Siddik}
+\newcommand{\cidThree}{A00494129}
+\newcommand{\reporttype}{Final Project Report}
+
+
+% include files that load packages and define macros
+\input{includes} % various packages needed for maths etc.
+\input{notation} % short-hand notation and macros
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\marginparwidth}{2cm}
+\begin{document}
+	% front page
+	\input{chapters/0_title_page}
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+	% Table of contents
+	% If a table of contents is needed, uncomment the following lines
+	\markboth{}{}
+	\tableofcontents
+	\newpage
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%% Main document
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Example Figure %
+	% \begin{figure}[h!]
+		% \centering
+		% \includegraphics[width=0.45\textwidth]{figures/goose} 
+		% \caption{A goose.}
+		% \label{goose} - \autoref{label} in text to reference this figure
+		% \end{figure}
+	
+	% Example Citation %
+	% For more contextual information on the bubble dynamic phenomena, please see the following sources: \cite{Hilgenfeldt1998}, \cite{Kreider2011}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	%%%%%%%%%%%%%%%%%
+	
+	% \section*{Note:}
+	% \emph{This document is intended to provide a sample structure for the reports in ME303 at the University of Waterloo. }
+	
+	
+	% ==== section 1: overview  ==== %
+	\include{chapters/1_introduction}
+	
+	% ==== section 2: business strategy ==== %
+	\include{chapters/2_methodology}
+	
+	% ==== section 3: customer section ==== %
+	\include{chapters/3_modeling}
+	
+	% ==== section 4: supplier section ==== %
+	\include{chapters/4_results}
+	
+	% ==== section 5: summary section ==== %
+	\include{chapters/5_summary}
+	
+	
+	
+	\newpage % Optional, ensures appendix starts on a new page
+	\input{appendices/appendix_a}
+	
+	\vfill 
+	
+	\newpage
+	\section*{Bibliography}
+	\addcontentsline{toc}{section}{Bibliography}
+	\markboth{}{}
+	\printbibliography
+\end{document}

@@ -1,0 +1,150 @@
+% ==== Appendix A Tables ==== %
+% LaTeX will automatically label this as "Appendix A."
+\section[Appendix]{Appendix}
+\label{sec:app_a}
+
+\subsection{Source Code - GitHub}
+\href{https://github.com/bhavik-knight/mcda5580-data-mining-a2-classification} {GitHub}
+
+\subsection{YouTube Video}
+\href{https://www.youtube.com/watch?v=GmGmm7UUxUY}{YouTube Video}
+
+\subsection{Chat Session Links}
+\href{https://gemini.google.com/u/1/app/0be2d260ee0277ad?pageId=none}{Gemini}
+
+\href{https://chat.deepseek.com/a/chat/s/2759bec1-7287-4360-bdd1-c3bebeb0c4e6}{DeepSeek}
+
+\subsection {Tables}
+
+
+\begin{table}[htbp]
+	\centering
+	\caption{Experimental Hardware Configuration}
+	\label{tab:experimental_setup}
+	\begin{tabular}{lp{0.7\textwidth}}
+		\toprule
+		\textbf{Category} & \textbf{Configuration} \\
+		\midrule
+		CPU & Intel Core i9-13900K processor with 24 cores (8P+16E), \\
+		& boost frequency up to 5.8 GHz, 36 MB Intel Smart Cache \\
+		\addlinespace
+		RAM & 32 GB DDR5 memory operating at 4800 MT/s \\
+		\addlinespace
+		GPU & NVIDIA GeForce RTX 4070 with 8 GB GDDR6X VRAM, \\
+		& 5888 CUDA cores, 192-bit memory interface \\
+		\addlinespace
+		OS & Zorin OS 16.3 (Ubuntu 20.04 LTS based) Linux distribution
+		\footnote{All experiments conducted within an isolated Python 3.10 virtual environment (.venv)} \\
+		\bottomrule
+		
+	\end{tabular}
+\end{table}
+
+
+\begin{table}[htbp]
+	\centering
+	\caption{Performance Metrics for KNN Models (Mean Values Only)}
+	\label{tab:knn_results_mean}
+	\begin{tabular}{lcccc}
+		\toprule
+		Model & F1 Score & Accuracy & Precision & Recall \\
+		\midrule
+		KNN\_3  & 0.842083 & 0.842083 & 0.842083 & 0.842083 \\
+		KNN\_15 & 0.840557 & 0.840557 & 0.840557 & 0.840557 \\
+		KNN\_13 & 0.839813 & 0.839813 & 0.839813 & 0.839813 \\
+		KNN\_14 & 0.836940 & 0.836940 & 0.836940 & 0.836940 \\
+		KNN\_17 & 0.835477 & 0.835477 & 0.835477 & 0.835477 \\
+		KNN\_1  & 0.833665 & 0.833665 & 0.833665 & 0.833665 \\
+		KNN\_16 & 0.831958 & 0.831958 & 0.831958 & 0.831958 \\
+		KNN\_11 & 0.828496 & 0.828496 & 0.828496 & 0.828496 \\
+		KNN\_12 & 0.825362 & 0.825362 & 0.825362 & 0.825362 \\
+		KNN\_18 & 0.824218 & 0.824218 & 0.824218 & 0.824218 \\
+		KNN\_19 & 0.822100 & 0.822100 & 0.822100 & 0.822100 \\
+		KNN\_20 & 0.818519 & 0.818519 & 0.818519 & 0.818519 \\
+		KNN\_7  & 0.818234 & 0.818234 & 0.818234 & 0.818234 \\
+		KNN\_9  & 0.816794 & 0.816794 & 0.816794 & 0.816794 \\
+		KNN\_8  & 0.815496 & 0.815496 & 0.815496 & 0.815496 \\
+		KNN\_10 & 0.812411 & 0.812411 & 0.812411 & 0.812411 \\
+		KNN\_5  & 0.809472 & 0.809472 & 0.809472 & 0.809472 \\
+		KNN\_4  & 0.790333 & 0.790333 & 0.790333 & 0.790333 \\
+		KNN\_6  & 0.789160 & 0.789160 & 0.789160 & 0.789160 \\
+		KNN\_2  & 0.773613 & 0.773613 & 0.773613 & 0.773613 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+
+
+\subsection {Additional Plots}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{figures/dt_split.png}
+	\caption{Decision Free by splitting features}
+	\label{fig:decision_tree_split}
+\end{figure}
+
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{figures/m_f1_scores.png}
+	\caption{F1 Comparisons}
+	\label{fig:m_f1}
+\end{figure}
+
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{figures/m_accuracy.png}
+	\caption{Accuracy Comparisons}
+	\label{fig:m_accuracy}
+\end{figure}
+
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{figures/m_precision.png}
+	\caption{Precision Comparisons}
+	\label{fig:m_precision}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{figures/m_recall.png}
+	\caption{Recall Comparisons}
+	\label{fig:m_recall}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{figures/c_e.png}
+	\caption{Performance: F1 vs Time}
+	\label{fig:efficiency}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{figures/c_k3.png}
+	\caption{KNN k = 3}
+	\label{fig:knn}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{figures/c_rf.png}
+	\caption{Random Forest}
+	\label{fig:rf}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{figures/c_xg.png}
+	\caption{XG Boost}
+	\label{fig:XGB}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{figures/c_ann_.png}
+	\caption{ANN}
+	\label{fig:ann}
+\end{figure}

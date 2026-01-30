@@ -5,6 +5,16 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "duckdb>=1.4.4",
+    "ipykernel>=7.1.0",
+    "matplotlib>=3.10.8",
+    "mlxtend>=0.23.4",
+    "mysqlclient>=2.2.7",
+    "networkx>=3.4.2",
+    "pandas>=2.3.3",
+    "python-dotenv>=1.2.1",
     "ruff>=0.14.14",
+    "seaborn>=0.13.2",
+    "sqlalchemy>=2.0.46",
     "ty>=0.0.14",
 ]

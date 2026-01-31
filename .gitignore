@@ -221,3 +221,5 @@ __marimo__/
 *.bak
 *.bak*
 
+# ignore large sql files
+*.sql

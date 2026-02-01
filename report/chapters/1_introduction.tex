@@ -1,58 +1,27 @@
-\section{Introduction and Data Exploration}
-\label{sec:1_introduction}
+\section{Theoretical Framework}
+\label{sec:theoretical_framework}
 
-\subsection{Overview}
-The classification of vehicle acceptability is a significant challenge in automotive retail data mining. This report presents a comprehensive comparative analysis of multiple classification algorithms applied to the "Car Evaluation" dataset. Following the guidelines set in MCDA-5580, our primary focus is to transition from baseline heuristic evaluations to robust, production-ready machine learning pipelines. 
+Association Rule Mining (ARM) is an \textbf{unsupervised learning} technique for discovering hidden relationships in large datasets. Unlike supervised learning, ARM identifies local structures by uncovering sets of items that frequently co-occur. While ARM defines the objective, the \textbf{Apriori Algorithm} is the classical methodology used to solve this task efficiently.
 
-While this study explores a suite of algorithms including K-Nearest Neighbors (KNN), Support Vector Machines (SVM), and Artificial Neural Networks (ANN), Extreme Gradient Boosting (XGBoost), the \textbf{Random Forest Classifier (RF)} serves as a mandatory benchmark. Preliminary analysis established critical baselines using ensemble methods RF, which identified the hierarchical importance of safety and seating capacity in determining consumer sentiment. \autoref{fig:feature_importance}
+\subsection{The Apriori Algorithm}
+The Apriori algorithm uses a \textit{level-wise search}, leveraging frequent $k$-itemsets to explore $(k+1)$-candidates. Its efficiency stems from pruning the search space before database support counting.
 
-\begin{wrapfigure}{r}{0.4\textwidth}
-	\centering
-	\includegraphics[width=0.9\linewidth]{figures/rf_feature_imp.png}
-	\caption{Feature importance in predicting car acceptability} 
-	\label{fig:feature_importance}
-\end{wrapfigure}
+\subsubsection{Join-and-Prune Logic}
+The algorithm iterates through two primary steps at each level $k$:
+\begin{enumerate}
+\item \textbf{Join Step ($L_{k-1} \Join L_{k-1}$):} Generates candidate $k$-itemsets ($C_k$) by joining frequent $(k-1)$-itemsets ($L_{k-1}$) with themselves.
+\item \textbf{Pruning Step:} For any candidate in $C_k$, the algorithm evaluates its $(k-1)$-subsets. If any subset is missing from $L_{k-1}$, the candidate is pruned; by the Downward Closure Property, it cannot be frequent \cite{geeksforgeeks_apriori}.
+\end{enumerate}
 
-\subsection{Data Exploration and Preprocessing}
-The dataset comprises 1,728 instances with six categorical input features. As highlighted in the project tutorials (Tut3), these attributes represent technical and financial characteristics:
+\subsection{Key Metrics in ARM}
+The significance of discovered rules is quantified using three mathematical pillars:
 \begin{itemize}
-	\item \textbf{Financial Factors:} Buying Price and Maintenance Cost (categorized from 'vhigh' to 'low').
-	\item \textbf{Physical Capacity:} Number of Doors (2 to 5+) and Seating Capacity (2, 4, or more).
-	\item \textbf{Utility and Safety:} Boot Size (small, med, big) and Safety rating (low, med, high).
+\item \textbf{Support ($\sigma$):} Frequency of an itemset in the total transaction population.
+$$ \sigma(A \rightarrow B) = P(A \cup B) = \frac{\text{Count}(A \cup B)}{\text{Total Transactions}} $$
+\item \textbf{Confidence ($\gamma$):} Probability the consequent $B$ appears given the antecedent $A$.
+\[ \gamma(A \rightarrow B) = P(B|A) = \frac{\sigma(A \cup B)}{\sigma(A)} \]
+
+\item \textbf{Lift ($L$):} Strength of a rule by comparing observed support to expected support if $A$ and $B$ were independent.
+\[ L(A \rightarrow B) = \frac{\gamma(A \rightarrow B)}{\sigma(B)} \]
+$L > 1$ indicates a positive correlation, while $L = 1$ suggests item independence.
 \end{itemize}
-
-\subsection{Target Variable Distribution}
-The target variable, \textit{shouldBuy}, is divided into four classes: \textit{unacc, acc, good,} and \textit{vgood}. Analysis reveals a significant class imbalance, with approximately 70\% of records classified as "unacceptable." \ref{fig:class_distrib} This skew necessitates the use of F1-Macro as our primary evaluation metric to ensure the model does not achieve high accuracy by simply ignoring minority classes such as "very good."
-
-\subsection{Random Forest Baseline Insights}
-Consistent with the findings in the baseline Random Forest report, vehicle safety and capacity (number of seats) emerged as the dominant predictors. The \autoref{tab:mutual_info_gain} further indicates the mutual information can be extracted from the labels from \textit{Scikit-learn} library, a completely different method indicated the similar results. 
-
-
-\begin{table}[H]
-	\centering
-	\begin{minipage}[t]{0.3\textwidth}  % Table on left
-		\centering
-		\begin{tabular}{lS[table-format=1.6]}
-			\toprule
-			\textbf{Feature} & {\textbf{Information Gain}} \\
-			\midrule
-			safety          & 0.181732 \\
-			seats           & 0.152259 \\
-			price           & 0.066853 \\
-			maintenance     & 0.051088 \\
-			storage         & 0.020800 \\
-			doors           & 0.003109 \\
-			\bottomrule
-		\end{tabular}
-	\end{minipage}
-	\hfill
-	\begin{minipage}[t]{0.5\textwidth}  % Image on right
-		\centering
-		\includegraphics[width=\linewidth]{figures/class_distrib.png}
-		\label{fig:class_distrib}
-	\end{minipage}
-	\caption{Feature Importance via Information Gain}
-	\label{tab:mutual_info_gain}
-\end{table}
-
-Thus consistently prioritizes "Safety" as the root node. If a car is rated with "low" safety, it is immediately categorized as "unacceptable" regardless of its price or maintenance cost. This logical hierarchy formed the basis for our advanced pipeline development, ensuring that our automated encoders preserved these ordinal relationships.

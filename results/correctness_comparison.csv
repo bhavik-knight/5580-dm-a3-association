@@ -1,0 +1,5 @@
+,Granularity,Algorithm,Time_S,Rules_Count,Verified
+0,Session,Apriori,1.8294572500000001,297,True
+1,Session,FP-Growth,46.46897820400001,297,True
+2,User,Apriori,0.237310995,3363,True
+3,User,FP-Growth,3.125399829,3363,True

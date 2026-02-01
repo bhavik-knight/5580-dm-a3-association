@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+<<<<<<< HEAD
     "duckdb>=1.4.4",
     "ipykernel>=7.1.0",
     "jupyter-console>=6.6.3",
@@ -19,5 +20,8 @@ dependencies = [
     "ruff>=0.14.14",
     "seaborn>=0.13.2",
     "sqlalchemy>=2.0.46",
+=======
+    "ruff>=0.14.14",
+>>>>>>> 7e65783739ce75df39fbc788616948e0dfbea207
     "ty>=0.0.14",
 ]

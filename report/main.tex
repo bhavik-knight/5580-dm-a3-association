@@ -1,7 +1,7 @@
 \documentclass[12pt,oneside,letterpaper]{article}
 %NOTE: This report format is 
 
-\newcommand{\reporttitle}{Association Rule Mining - Unsupervised Learning}
+\newcommand{\reporttitle}{Association Rule Mining}
 \newcommand{\reportauthorOne}{Bhavik Kantilal Bhagat}
 \newcommand{\cidOne}{A00494758}
 \newcommand{\reportauthorTwo}{Jeevan Dhakal}
@@ -33,11 +33,11 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% Example Figure %
 	% \begin{figure}[h!]
-		% \centering
-		% \includegraphics[width=0.45\textwidth]{figures/goose} 
-		% \caption{A goose.}
-		% \label{goose} - \autoref{label} in text to reference this figure
-		% \end{figure}
+	% 	\centering
+	% 	\includegraphics[width=0.45\textwidth]{figures/goose} 
+	% 	\caption{A goose.}
+	% 	\label{goose} - \autoref{label} in text to reference this figure
+	% 	\end{figure}
 	
 	% Example Citation %
 	% For more contextual information on the bubble dynamic phenomena, please see the following sources: \cite{Hilgenfeldt1998}, \cite{Kreider2011}
@@ -49,29 +49,32 @@
 	% \emph{This document is intended to provide a sample structure for the reports in ME303 at the University of Waterloo. }
 	
 	
-	% ==== section 1: overview  ==== %
+	% ==== section 1: introduction  ==== %
 	\include{chapters/1_introduction}
 	
-	% ==== section 2: business strategy ==== %
+	% ==== section 2: methodology ==== %
 	\include{chapters/2_methodology}
 	
-	% ==== section 3: customer section ==== %
+	% ==== section 3: modeling ==== %
 	\include{chapters/3_modeling}
 	
-	% ==== section 4: supplier section ==== %
-	\include{chapters/4_results}
+	% ==== section 4: benchmarking ==== %
+	\include{chapters/4_benchmarking}
 	
-	% ==== section 5: summary section ==== %
-	\include{chapters/5_summary}
+	% ==== section 5: discovery ==== %
+	\include{chapters/5_discovery}
 	
-	
+	% ==== section 6: summary section ==== %
+	\include{chapters/6_summary}
 	
 	\newpage % Optional, ensures appendix starts on a new page
-	\input{appendices/appendix_a}
+	\include{appendices/appendix_a}
+	\input
 	
 	\vfill 
 	
 	\newpage
+	
 	\section*{Bibliography}
 	\addcontentsline{toc}{section}{Bibliography}
 	\markboth{}{}

@@ -1,150 +1,90 @@
-% ==== Appendix A Tables ==== %
-% LaTeX will automatically label this as "Appendix A."
 \section[Appendix]{Appendix}
 \label{sec:app_a}
 
-\subsection{Source Code - GitHub}
-\href{https://github.com/bhavik-knight/mcda5580-data-mining-a2-classification} {GitHub}
+\subsection{Project Repository and Artifacts}
+\begin{itemize}
+    \item \textbf{Source Code (GitHub):} \href{https://github.com/bhavik-knight/5580-dm-a3-association}{ARM Project Repository}
+    \label{sec:app_github}
+    \item \textbf{Exploratory Notebooks:} Detailed analysis of the 9-step tuning lifecycle, one-hot encoding, and algorithmic benchmarking is available in the \texttt{/code} directory of the repository.
+\end{itemize}
 
-\subsection{YouTube Video}
-\href{https://www.youtube.com/watch?v=GmGmm7UUxUY}{YouTube Video}
+\subsection[Video]{Video Link}
+\href{https://youtube.com/}{Youtube}
 
-\subsection{Chat Session Links}
-\href{https://gemini.google.com/u/1/app/0be2d260ee0277ad?pageId=none}{Gemini}
-
-\href{https://chat.deepseek.com/a/chat/s/2759bec1-7287-4360-bdd1-c3bebeb0c4e6}{DeepSeek}
-
-\subsection {Tables}
-
-
+\subsection[Machine]{Benchmarking Machine}
 \begin{table}[htbp]
 	\centering
-	\caption{Experimental Hardware Configuration}
-	\label{tab:experimental_setup}
-	\begin{tabular}{lp{0.7\textwidth}}
+	\caption{Machine Architecture Specifications}
+	\label{tab:machine}
+	\begin{tabular}{@{}ll@{}}
 		\toprule
-		\textbf{Category} & \textbf{Configuration} \\
+		\textbf{Component} & \textbf{Specification} \\
 		\midrule
-		CPU & Intel Core i9-13900K processor with 24 cores (8P+16E), \\
-		& boost frequency up to 5.8 GHz, 36 MB Intel Smart Cache \\
-		\addlinespace
-		RAM & 32 GB DDR5 memory operating at 4800 MT/s \\
-		\addlinespace
-		GPU & NVIDIA GeForce RTX 4070 with 8 GB GDDR6X VRAM, \\
-		& 5888 CUDA cores, 192-bit memory interface \\
-		\addlinespace
-		OS & Zorin OS 16.3 (Ubuntu 20.04 LTS based) Linux distribution
-		\footnote{All experiments conducted within an isolated Python 3.10 virtual environment (.venv)} \\
-		\bottomrule
-		
-	\end{tabular}
-\end{table}
-
-
-\begin{table}[htbp]
-	\centering
-	\caption{Performance Metrics for KNN Models (Mean Values Only)}
-	\label{tab:knn_results_mean}
-	\begin{tabular}{lcccc}
-		\toprule
-		Model & F1 Score & Accuracy & Precision & Recall \\
+		Processor & Intel Core i9-13900HK (20 cores) \\
+		Base Clock & [e.g., 3.0 GHz] \\
 		\midrule
-		KNN\_3  & 0.842083 & 0.842083 & 0.842083 & 0.842083 \\
-		KNN\_15 & 0.840557 & 0.840557 & 0.840557 & 0.840557 \\
-		KNN\_13 & 0.839813 & 0.839813 & 0.839813 & 0.839813 \\
-		KNN\_14 & 0.836940 & 0.836940 & 0.836940 & 0.836940 \\
-		KNN\_17 & 0.835477 & 0.835477 & 0.835477 & 0.835477 \\
-		KNN\_1  & 0.833665 & 0.833665 & 0.833665 & 0.833665 \\
-		KNN\_16 & 0.831958 & 0.831958 & 0.831958 & 0.831958 \\
-		KNN\_11 & 0.828496 & 0.828496 & 0.828496 & 0.828496 \\
-		KNN\_12 & 0.825362 & 0.825362 & 0.825362 & 0.825362 \\
-		KNN\_18 & 0.824218 & 0.824218 & 0.824218 & 0.824218 \\
-		KNN\_19 & 0.822100 & 0.822100 & 0.822100 & 0.822100 \\
-		KNN\_20 & 0.818519 & 0.818519 & 0.818519 & 0.818519 \\
-		KNN\_7  & 0.818234 & 0.818234 & 0.818234 & 0.818234 \\
-		KNN\_9  & 0.816794 & 0.816794 & 0.816794 & 0.816794 \\
-		KNN\_8  & 0.815496 & 0.815496 & 0.815496 & 0.815496 \\
-		KNN\_10 & 0.812411 & 0.812411 & 0.812411 & 0.812411 \\
-		KNN\_5  & 0.809472 & 0.809472 & 0.809472 & 0.809472 \\
-		KNN\_4  & 0.790333 & 0.790333 & 0.790333 & 0.790333 \\
-		KNN\_6  & 0.789160 & 0.789160 & 0.789160 & 0.789160 \\
-		KNN\_2  & 0.773613 & 0.773613 & 0.773613 & 0.773613 \\
+		Memory (RAM) & 32 GB \\
+		\midrule
+		Operating System & Zorin OS 18 \\
+		OS Architecture & 64-bit \\
+		Desktop Environment & GNOME (typically) \\
+		\midrule
+		Graphics & [e.g., NVIDIA RTX 4070, Intel UHD Graphics] \\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
 
 
-\subsection {Additional Plots}
-\begin{figure}[htbp]
+\subsection{Mastery Tier: Elite Association Rules (User Level)}
+The following table summarizes the high-impact rules discovered at the User-Level ($\sigma=0.23, \gamma=0.60, L \ge 3.0$). These rules represent the "Strategic Personas" identified in our analysis.
+
+\begin{table}[H]
+\centering
+\caption{Strategic Elite Rules - SimplyCast User Personas}
+\label{tab:elite_rules}
+\begin{small}
+\begin{tabular}{lllcc}
+\hline
+\textbf{Antecedent} & \textbf{Consequent} & \textbf{Support} & \textbf{Conf.} & \textbf{Lift} \\ \hline
+\texttt{OpenData} & \texttt{OpensAndBounces} & 0.233 & 0.933 & 3.51 \\
+\texttt{OpenReport, OpenData} & \texttt{OpensAndBounces} & 0.233 & 0.933 & 3.51 \\
+\texttt{AddImage, SendNow} & \texttt{UploadImage} & 0.243 & 0.835 & 3.14 \\
+\texttt{OpenReport, SendNow} & \texttt{ManageTab} & 0.238 & 0.790 & 3.14 \\
+\texttt{ReportsTab, SendNow} & \texttt{OpenReport} & 0.237 & 0.996 & 3.14 \\
+\hline
+\end{tabular}
+\end{small}
+\end{table}
+
+\subsection{Diagnostic Visualizations}
+The following figures illustrate the sensitivity analysis and performance benchmarking conducted during the study.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/apriori_user_confidence_tuning.pdf}
+    \caption{Discovery Frontier: Mapping the Lift Stability Plateau for User-Level Personas.}
+    \label{fig:conf_bubble}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/user_crossover.pdf}
+    \caption{User-Level Performance Wall: Comparison of Apriori and FP-Growth efficiency.}
+    \label{fig:user_crossover}
+\end{figure}
+
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/dt_split.png}
-	\caption{Decision Free by splitting features}
-	\label{fig:decision_tree_split}
+	\includegraphics[width=0.8\textwidth]{figures/apriori_session_itemset_spiral_donut.pdf}
+	\caption{Session Itemset Distribution}
+	\label{fig:session_itemset_donut}
 \end{figure}
 
 
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=\textwidth]{figures/m_f1_scores.png}
-	\caption{F1 Comparisons}
-	\label{fig:m_f1}
-\end{figure}
-
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=\textwidth]{figures/m_accuracy.png}
-	\caption{Accuracy Comparisons}
-	\label{fig:m_accuracy}
-\end{figure}
-
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=\textwidth]{figures/m_precision.png}
-	\caption{Precision Comparisons}
-	\label{fig:m_precision}
-\end{figure}
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=\textwidth]{figures/m_recall.png}
-	\caption{Recall Comparisons}
-	\label{fig:m_recall}
-\end{figure}
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=\textwidth]{figures/c_e.png}
-	\caption{Performance: F1 vs Time}
-	\label{fig:efficiency}
-\end{figure}
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=\textwidth]{figures/c_k3.png}
-	\caption{KNN k = 3}
-	\label{fig:knn}
-\end{figure}
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=\textwidth]{figures/c_rf.png}
-	\caption{Random Forest}
-	\label{fig:rf}
-\end{figure}
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=\textwidth]{figures/c_xg.png}
-	\caption{XG Boost}
-	\label{fig:XGB}
-\end{figure}
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=\textwidth]{figures/c_ann_.png}
-	\caption{ANN}
-	\label{fig:ann}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/apriori_user_itemset_spiral_donut.pdf}
+    \caption{User Itemset Distribution}
+    \label{fig:user_itemset_donut}
 \end{figure}

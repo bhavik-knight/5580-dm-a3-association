@@ -1,20 +1,13 @@
-\section[Baseline Models]{Related Work and Baseline Models}
-To establish a performance baseline, this study first examined two standard classification paradigms: distance-based learning via K-Nearest Neighbors (KNN) and ensemble learning via Random Forest. These models provide a reference point for evaluating the necessity of more complex architectures and specialized preprocessing pipelines.
+\section{Implementation Stack and Data Engineering}
+\label{sec:implementation_stack}
 
-\subsection{K-Nearest Neighbors (KNN) Implementation}
-The KNN algorithm was utilized to test the effectiveness of mathematical distance in determining car acceptability. An \textbf{Ordinal Encoding} was applied to the categorical features to preserve the logical (natural) order of attributes like price (vhigh > high > med > low), which \textbf{One-hot Encoding} wouldn't be able to preserve. The \autoref{tab:knn_all_metrics} demonstrates various metrics performance for $K$ in range $[1, 20]$. The \autoref{fig:m_f1} shows $f1\_scores$ of various models including KNN.
+\subsection{Analytical Engine: DuckDB}\textbf{DuckDB}, an in-process OLAP database, served as the primary engine for high-speed data transformation. By utilizing vectorized execution and columnar storage, it bypassed traditional RDBMS bottlenecks, allowing for sub-second aggregation of 39,000 milestones. Specifically, DuckDB facilitated a zero-copy pipeline to extract raw logs from MySQL and serialize them directly into Python DataFrames for analysis.
 
+\subsection{Record Filtering and Cardinality Constraints}To ensure the integrity of the $A \rightarrow B$ relationship, we excluded transactions containing only a single milestone. Because ARM metrics require disjoint sets to establish predictive logic, a basket cardinality of $n \ge 2$ is mandatory. This filtering process resulted in a refined dataset:
 
-\subsection{Random Forest and Feature Importance}
-The Random Forest classifier was implemented as the primary ensemble benchmark. This model was optimized using a randomized search for hyperparameters including tree depth and the number of estimators.
+\begin{itemize}\item \textbf{Session Basket \# of Records:} 20772\item \textbf{User Basket \# of Records:} 2352\end{itemize}
 
-
-\begin{itemize}
-	\item \textbf{Rule Extraction:} As illustrated in the extracted decision trees (see Appendix) \autoref{fig:decision_tree_split}, the model consistently utilized "Safety" and "Seats" as the primary splitting criteria. If safety was "low" or seating capacity was "2", the model prioritized an "unacc" classification regardless of secondary variables.
-	\item \textbf{Feature Rank:} \autoref{fig:feature_importance} demonstrates that safety rating is the most significant predictor of car acceptability, followed by seating capacity and price.
-\end{itemize}
+This reduction refocused computational resources on discovering multi-step behavioral sequences rather than isolated, non-associative actions. For that anlaysis of schema, relationships, joins, etc. were conducted, code related to that can be found in python scripts in \textbf{code/} of \href{https://github.com/bhavik-knight/5580-dm-a3-association}{GitHub}.
 
 
-
-\subsection{Limitations of Initial Approaches}
-While the Random Forest model achieved a high accuracy of approximately $97\%$, these baseline implementations often relied on manually cleaned data and fixed partitions. In a production retail environment, data is frequently incomplete or subject to shifts. This necessitates the development of a more robust, automated pipeline capable of handling missing data and providing statistical stability through extensive cross-validation, which is the focus of the following chapter.
+\subsection{Algorithmic Framework: mlxtend}Frequent pattern mining was implemented using the \textbf{mlxtend} library \cite{raschka_mlxtend}. According to the documentation, \textit{mlxtend} provides an industry-standard interface for association rule discovery, supporting efficient boolean matrix transformations. We utilized its mathematically rigorous implementations of both \textbf{Apriori} and \textbf{FP-Growth} to calculate support, confidence, and lift across the SimplyCast dataset. The study mainly focus on using\textbf{Apriori} algorithm, however \textbf{FP-Growth} algorithm is discussed in \autoref{sec:app_a}

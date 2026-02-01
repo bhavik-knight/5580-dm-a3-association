@@ -1,26 +1,62 @@
-\section{Methodology and System Architecture}
-\label{sec:3_method}
-This study transitioned from static heuristic models to an automated, high-performance classification framework designed for end-to-end reproducibility.
+\section[Apriori]{Apriori Algorithm \& Hyper-parameter Tuning}
+\label{sec:3_modeling}
 
-\subsection{Computational Environment}
-Experiments were executed on a high-end workstation optimized for data-intensive tasks (see \autoref{tab:experimental_setup} in \autoref{sec:app_a}). To ensure environment stability and dependency integrity, a Python 3.10 virtual environment was utilized. This configuration facilitated exhaustive cross-validation and a large-scale stress test on \textbf{100,000 synthetic records}—generated to simulate high-volume real-world data—with minimal latency.
+The extraction of non-trivial behavioral patterns from high-dimensional interaction data was governed by a systematic 9-step tuning lifecycle. This process was executed on an \textbf{Intel Core i9} workstation with \textbf{32GB of DDR5 RAM}, ensuring that the "Exponential Explosion" of candidate itemsets remained computationally manageable.
 
-\subsection{Modular Pipeline Design}
-A key contribution is the development of a modular Scikit-Learn pipeline that automates the transformation of categorical strings into machine-readable tensors.
+\subsection{The Support Sweep: Identifying the Interaction Elbow}
+A broad "Support Sweep" was performed to identify the boundary between statistical sparsity and combinatorial saturation. This phase involved iteratively adjusting the minimum support threshold ($\sigma$) and monitoring the resultant rule density.
 
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figures/apriori_user_support_tuning.pdf}
+		\caption{User Support Tuning}
+		\label{fig:user_support_elbow}
+	\end{minipage}
+	\hspace{0.02\textwidth}
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figures/apriori_session_support_tuning.pdf}
+		\caption{Support Elbow Analysis}
+		\label{fig:session_support_elbow}
+	\end{minipage}
+\end{figure}
 
-
-The preprocessing architecture consists of three specialized stages:
 \begin{enumerate}
-	\item \textbf{CarDataCleaner:} Ensures feature consistency and string standardization.
-	\item \textbf{CarDataImputer:} Implements a "most\_frequent" strategy to handle data gaps, a critical component for the stress test containing 5,000 missing values per feature.
-	\item \textbf{CarDataEncoder:} Employs a hybrid strategy using Ordinal Mapping for hierarchical features (e.g., Price, Maintenance) and One-Hot Encoding for nominal attributes.
+	\item \textbf{User-Level Support Elbow ($\sigma = 0.23$):} For aggregated user personas, the initial sweep revealed that behavioral rules are fragmented above $\sigma = 0.50$. The optimal "Support Elbow" was identified at \textbf{0.23}. At this threshold, the algorithm transition from identifying generic interactions to capturing established behavioral signatures shared by a significant "Mastery Tier" of the user population. Further lowering the support explode candidate rules.
+
+    \item \textbf{Session-Level Support Elbow ($\sigma = 0.045$):} Due to the granularity of single-interaction windows, the session support floor was found to be significantly lower. The elbow was pinpointed at \textbf{0.045}. Settings below this coordinate triggered a non-linear spike in candidate generation, while settings above it failed to capture the local functional transitions (e.g., report loading to exporting) that define platform utility.
 \end{enumerate}
 
-\subsection{Validation Strategy and Experimental Design}
-To achieve high statistical significance, a \textbf{Repeated Stratified K-Fold} validation strategy was employed with 10 repeats and 9 splits, totaling \textbf{90 folds}. This method mitigates "sampling luck" inherent in standard 80/20 splits, providing a robust distribution of F1-Macro and Accuracy metrics to assess algorithmic stability across varying data conditions.
+
+\subsection{Lift Stability and the Confidence Plateau}
+Once the support elbows were established, a sensitivity analysis was conducted on the confidence threshold ($\gamma$) to ensure the reliability of inferred "If-Then" relationships. Confidence was swept from $0.10$ to $0.90$ while monitoring the \textbf{Average Lift ($L$)}. A "Lift Stability Plateau" was observed in the confidence range of $0.55-0.65$ for User \autoref{fig:user_confidence} and in the confidence range $0.75-0.80$ for Session transitions \autoref{fig:session_confidence}. 
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figures/apriori_user_confidence_tuning.pdf}
+		\caption{User Confidence Tuning}
+		\label{fig:user_confidence}
+	\end{minipage}
+	\hspace{0.02\textwidth}
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figures/apriori_session_confidence_tuning.pdf}
+		\caption{Session Confidence Tuning}
+		\label{fig:session_confidence}
+	\end{minipage}
+\end{figure}
 
 
 
-\subsection{Data Isolation (Vault Set)}
-A 10\% "Vault" set (173 records) was fully sequestered from the training and validation phases. This holdout set provides an unbiased final generalization benchmark before the models are subjected to the production-scale 100,000-record simulation. (Detailed results are provided in \autoref{sec:app_a}).
+
+\begin{itemize}
+    \item \textbf{Filtering Triviality:} Lower confidence thresholds yielded a higher volume of rules, but these were frequently characterized by low lift values, representing background noise or random behavioral overlaps.
+    \item \textbf{Metric Fixation:} By fixing confidence at the plateau was the most crucial step for the resulting rules-set to be non-trivial. Rules retained after this gate exhibited a higher Lift than stabilized one, meaning the discovered patterns were at least \textbf{3x more likely} for user and \textbf{4x more likely} for session than random chance, effectively isolating the "Elite" professional workflows from casual interaction.
+\end{itemize}
+
+\subsection{Computational Performance Profiling}
+The use of the Core i9 architecture was instrumental during the tuning of session-level data. As $\sigma$ approached the $0.045$ elbow, the memory footprint of the candidate generation phase scaled exponentially. The 32GB RAM capacity allowed for the storage of high-cardinality itemsets in-memory, facilitating the rapid iterations required to find the optimal "Active Zone" of association rules without sacrificing the granularity of the discovery frontier.

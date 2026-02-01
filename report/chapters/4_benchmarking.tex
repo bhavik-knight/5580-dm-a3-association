@@ -1,0 +1,46 @@
+\section{The Performance Paradox: Apriori vs. FP-Growth}
+\label{sec:4_benchmarking}
+
+A critical component of this study was the comparative benchmarking of the two primary Association Rule Mining (ARM) algorithms: the classical \textbf{Apriori} and the tree-based \textbf{FP-Growth}. Benchmarking was conducted on high-performance infrastructure comprising mentioned in \autoref{tab:machine} to evaluate computational efficiency across the established support elbows.
+
+\subsection{Benchmark Results: The Apriori Advantage}
+Unexpectedly, the performance data revealed a consistent speed advantage for the Apriori algorithm over FP-Growth across both evaluation granularities. At the session level ($\sigma = 0.045$), Apriori completed the mining process in approximately \textbf{1.8 seconds}, whereas FP-Growth required \textbf{46.5 seconds}—a performance gap of over 25x in favor of the older algorithm. A similar, though less pronounced, trend was observed at the user level, where Apriori outperformed FP-Growth by a factor of 10x (0.24s vs 3.1s).
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figures/user_crossover.pdf}
+		\caption{User Benchmarking}
+		\label{fig:user_cx}
+	\end{minipage}
+	\hspace{0.02\textwidth}
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figures/session_crossover.pdf}
+		\caption{Session Benchmarking}
+		\label{fig:session_confidence}
+	\end{minipage}
+	\caption{Apriori v FPG Performance Comparison}
+\end{figure}
+
+
+\subsection{The Insight: Sparsity and Shallow Tree Depth}
+The "Apriori Paradox" observed in this dataset is explained by the structural characteristics of the SimplyCast interaction matrix:
+\begin{itemize}
+    \item \textbf{Data Sparsity:} While the platform contains over 39,000 distinct milestones, the average interaction basket is extremely sparse. In such environments, the \textbf{Downward Closure Property} utilized by Apriori is highly effective. Most candidate combinations are pruned in the first two levels of search, meaning the algorithm only scans a minute fraction of the total possible search space.
+    \item \textbf{Shallow Itemset Depth:} As illustrated in the \textbf{Itemset Spiral Donut Chart} (see \autoref{fig:user_itemset_donut}), the majority of frequent itemsets in this behavioral dataset have a cardinality of $k \le 3$. Since Apriori only requires $k+1$ passes over the database, its breadth-first approach is highly efficient for shallow patterns. 
+\end{itemize}
+
+In contrast, the FP-Growth algorithm incurs a significant "architectural tax" by building a full \textbf{FP-Tree} structure and performing recursive conditional tree mining. For datasets where the pattern depth is minimal, the overhead of tree construction and recursive traversal far exceeds the cost of Apriori's simple candidate generation.
+
+Thus, simple \textbf{Apriori algorithm was superior} for our dataset to perform Association Rule Mining.
+
+\subsection{The Crossover Theory: When FP-Growth Becomes Superior}
+While Apriori dominated the primary experiments, the theoretical crossover point where FP-Growth would become the superior choice was also explored. FP-Growth is mathematically superior under the following conditions:
+\begin{enumerate}
+    \item \textbf{Lower Support Thresholds:} As support approaches the \textit{Performance Wall} the number of candidates in Apriori grows combinatorially ($C_{n}^{k}$), leading to CPU exhaustion, which was observed for support $\sigma<0.2$ for user basket, and $\sigma<0.045$ for session basket.
+    
+    \item \textbf{High Data Density and Long Itemsets:} In environments where \textit{users trigger dozens of concurrent milestones}, the FP-Tree achieves massive compression ratios. However, as shown in our donut-piechart visualizations \autoref{fig:user_itemset_donut} and \autoref{fig:session_itemset_donut}, the lack of "long-tail" itemsets in the SimplyCast data meant that the suffix-tree compression of FP-Growth never reached the efficiency required to offset its structural overhead.
+\end{enumerate}
+

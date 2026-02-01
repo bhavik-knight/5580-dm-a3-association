@@ -1,463 +1,463 @@
 Support,Rule_Count,Avg_Lift,Avg_Confidence,Time_MS,Item_Sets,Rules,Growth_Rate
-0.06,272,3.2283013283055224,0.886869622039673,1137.291042,"      support                                           itemsets
+0.06,272,3.2283013283055224,0.886869622039673,809.485802,"      support                                           itemsets
 0    0.168159                                         (AddImage)
 1    0.106875                                    (AdvProjCreate)
 2    0.118044                                  (CaptionedImages)
 3    0.174658                                         (CopyProj)
 4    0.106393                                  (ImageProperties)
 ..        ...                                                ...
-502  0.060610  (TxtFontSizeColor, SEDragResize, SEDeleteEleme...
-503  0.060225  (SEDragIn, SEDragResize, SEDeleteElement, Uplo...
-504  0.091517  (SendNow, ManageTab, ReEditProj, ProjPreview, ...
-505  0.077508  (SendNow, ManageTab, ReEditProj, ProjPreview, ...
-506  0.064558  (SendNow, ManageTab, ReEditProj, ProjPreview, ...
+502  0.060610  (TxtFontSizeColor, SEDragIn, SEDeleteElement, ...
+503  0.060225  (SEDragResize, UploadImage, SEDragIn, SEDelete...
+504  0.091517  (ManageTab, SendNow, ReEditProj, ReportsTab, P...
+505  0.077508  (TestSend, ManageTab, SendNow, ReEditProj, Pro...
+506  0.064558  (TxtFontSizeColor, ManageTab, SendNow, ReEditP...
 
 [507 rows x 2 columns]","                                           antecedents    consequents  \
 0                                    (ImageProperties)     (AddImage)   
-1                                           (AddImage)  (UploadImage)   
-2                                        (UploadImage)     (AddImage)   
+1                                        (UploadImage)     (AddImage)   
+2                                           (AddImage)  (UploadImage)   
 3                                      (AdvProjCreate)    (ManageTab)   
 4                                      (AdvProjCreate)  (ProjPreview)   
 ..                                                 ...            ...   
-267     (ReportsTab, SendNow, ReEditProj, ProjPreview)    (ManageTab)   
-268       (SendNow, TestSend, ReEditProj, ProjPreview)    (ManageTab)   
-269     (ProjPreview, ReEditProj, ManageTab, TestSend)      (SendNow)   
-270  (TxtFontSizeColor, SendNow, ReEditProj, ProjPr...    (ManageTab)   
-271  (TxtFontSizeColor, ProjPreview, ReEditProj, Ma...      (SendNow)   
+267     (ReEditProj, ReportsTab, ProjPreview, SendNow)    (ManageTab)   
+268     (TestSend, ReEditProj, ProjPreview, ManageTab)      (SendNow)   
+269       (TestSend, ReEditProj, ProjPreview, SendNow)    (ManageTab)   
+270  (TxtFontSizeColor, ReEditProj, ProjPreview, Ma...      (SendNow)   
+271  (TxtFontSizeColor, ReEditProj, ProjPreview, Se...    (ManageTab)   
 
      antecedent support  consequent support   support  confidence      lift  \
 0              0.106393            0.168159  0.097439    0.915837  5.446255   
-1              0.168159            0.140044  0.137108    0.815345  5.822051   
-2              0.140044            0.168159  0.137108    0.979031  5.822051   
+1              0.140044            0.168159  0.137108    0.979031  5.822051   
+2              0.168159            0.140044  0.137108    0.815345  5.822051   
 3              0.106875            0.638407  0.086800    0.812162  1.272169   
 4              0.106875            0.548286  0.106778    0.999099  1.822222   
 ..                  ...                 ...       ...         ...       ...   
 267            0.096572            0.638407  0.091517    0.947657  1.484408   
-268            0.088340            0.638407  0.077508    0.877384  1.374333   
-269            0.094743            0.534373  0.077508    0.818089  1.530933   
-270            0.072116            0.638407  0.064558    0.895194  1.402229   
-271            0.075534            0.534373  0.064558    0.854685  1.599415   
+268            0.094743            0.534373  0.077508    0.818089  1.530933   
+269            0.088340            0.638407  0.077508    0.877384  1.374333   
+270            0.075534            0.534373  0.064558    0.854685  1.599415   
+271            0.072116            0.638407  0.064558    0.895194  1.402229   
 
      representativity  leverage  conviction  zhangs_metric   jaccard  \
 0                 1.0  0.079548    9.883701       0.913587  0.550149   
-1                 1.0  0.113558    4.657093       0.995670  0.801351   
-2                 1.0  0.113558   39.669267       0.963118  0.801351   
+1                 1.0  0.113558   39.669267       0.963118  0.801351   
+2                 1.0  0.113558    4.657093       0.995670  0.801351   
 3                 1.0  0.018570    1.925025       0.239542  0.131818   
 4                 1.0  0.048180  501.402369       0.505214  0.194715   
 ..                ...       ...         ...            ...       ...   
 267               1.0  0.029865    6.908139       0.361214  0.142227   
-268               1.0  0.021111    2.948988       0.298767  0.119383   
-269               1.0  0.026880    2.559647       0.383099  0.140513   
-270               1.0  0.018518    3.450099       0.309144  0.099940   
-271               1.0  0.024195    3.204248       0.405392  0.118379   
+268               1.0  0.026880    2.559647       0.383099  0.140513   
+269               1.0  0.021111    2.948988       0.298767  0.119383   
+270               1.0  0.024195    3.204248       0.405392  0.118379   
+271               1.0  0.018518    3.450099       0.309144  0.099940   
 
      certainty  kulczynski  
 0     0.898823    0.747641  
-1     0.785274    0.897188  
-2     0.974792    0.897188  
+1     0.974792    0.897188  
+2     0.785274    0.897188  
 3     0.480526    0.474062  
 4     0.998006    0.596924  
 ..         ...         ...  
 267   0.855243    0.545505  
-268   0.660901    0.499396  
-269   0.609321    0.481567  
-270   0.710153    0.498159  
-271   0.687914    0.487748  
+268   0.609321    0.481567  
+269   0.660901    0.499396  
+270   0.687914    0.487748  
+271   0.710153    0.498159  
 
 [272 rows x 14 columns]",
-0.055,378,3.465441911412565,0.8854563799093097,1486.052119,"      support                                           itemsets
+0.055,378,3.4654419114125643,0.8854563799093097,961.840889,"      support                                           itemsets
 0    0.168159                                         (AddImage)
 1    0.106875                                    (AdvProjCreate)
 2    0.118044                                  (CaptionedImages)
 3    0.174658                                         (CopyProj)
 4    0.106393                                  (ImageProperties)
 ..        ...                                                ...
-634  0.064558  (SendNow, ManageTab, ReEditProj, ProjPreview, ...
-635  0.058492  (SendNow, ManageTab, ProjPreview, TestSend, Re...
-636  0.057000  (SendNow, ManageTab, ProjPreview, TxtBIUS, Txt...
-637  0.057915  (SendNow, ManageTab, ReEditProj, TestSend, Rep...
-638  0.059455  (SendNow, ManageTab, ReEditProj, TxtBIUS, TxtF...
+634  0.064558  (TxtFontSizeColor, ManageTab, SendNow, ReEditP...
+635  0.058492  (TestSend, ManageTab, SendNow, ReportsTab, Pro...
+636  0.057000  (TxtFontSizeColor, TxtBIUS, ManageTab, SendNow...
+637  0.057915  (TestSend, ManageTab, SendNow, ReEditProj, Rep...
+638  0.059455  (TxtFontSizeColor, TxtBIUS, ManageTab, SendNow...
 
 [639 rows x 2 columns]","                                           antecedents         consequents  \
 0                                    (ImageProperties)          (AddImage)   
-1                                           (AddImage)       (UploadImage)   
-2                                        (UploadImage)          (AddImage)   
+1                                        (UploadImage)          (AddImage)   
+2                                           (AddImage)       (UploadImage)   
 3                                      (AdvProjCreate)         (ManageTab)   
 4                                      (AdvProjCreate)       (ProjPreview)   
 ..                                                 ...                 ...   
-373        (ReportsTab, SendNow, TestSend, ReEditProj)         (ManageTab)   
-374      (ReportsTab, TestSend, ReEditProj, ManageTab)           (SendNow)   
-375          (SendNow, ReEditProj, ManageTab, TxtBIUS)  (TxtFontSizeColor)   
-376   (TxtFontSizeColor, SendNow, ReEditProj, TxtBIUS)         (ManageTab)   
-377  (TxtFontSizeColor, ReEditProj, ManageTab, TxtB...           (SendNow)   
+373      (TestSend, ReEditProj, ReportsTab, ManageTab)           (SendNow)   
+374        (TestSend, ReEditProj, ReportsTab, SendNow)         (ManageTab)   
+375  (TxtFontSizeColor, ReEditProj, ManageTab, TxtB...           (SendNow)   
+376   (TxtFontSizeColor, ReEditProj, SendNow, TxtBIUS)         (ManageTab)   
+377          (ReEditProj, ManageTab, SendNow, TxtBIUS)  (TxtFontSizeColor)   
 
      antecedent support  consequent support   support  confidence      lift  \
 0              0.106393            0.168159  0.097439    0.915837  5.446255   
-1              0.168159            0.140044  0.137108    0.815345  5.822051   
-2              0.140044            0.168159  0.137108    0.979031  5.822051   
+1              0.140044            0.168159  0.137108    0.979031  5.822051   
+2              0.168159            0.140044  0.137108    0.815345  5.822051   
 3              0.106875            0.638407  0.086800    0.812162  1.272169   
 4              0.106875            0.548286  0.106778    0.999099  1.822222   
 ..                  ...                 ...       ...         ...       ...   
-373            0.060803            0.638407  0.057915    0.952494  1.491985   
-374            0.071490            0.534373  0.057915    0.810101  1.515984   
-375            0.067302            0.260591  0.059455    0.883405  3.390003   
+373            0.071490            0.534373  0.057915    0.810101  1.515984   
+374            0.060803            0.638407  0.057915    0.952494  1.491985   
+375            0.069998            0.534373  0.059455    0.849381  1.589490   
 376            0.067302            0.638407  0.059455    0.883405  1.383763   
-377            0.069998            0.534373  0.059455    0.849381  1.589490   
+377            0.067302            0.260591  0.059455    0.883405  3.390003   
 
      representativity  leverage  conviction  zhangs_metric   jaccard  \
 0                 1.0  0.079548    9.883701       0.913587  0.550149   
-1                 1.0  0.113558    4.657093       0.995670  0.801351   
-2                 1.0  0.113558   39.669267       0.963118  0.801351   
+1                 1.0  0.113558   39.669267       0.963118  0.801351   
+2                 1.0  0.113558    4.657093       0.995670  0.801351   
 3                 1.0  0.018570    1.925025       0.239542  0.131818   
 4                 1.0  0.048180  501.402369       0.505214  0.194715   
 ..                ...       ...         ...            ...       ...   
-373               1.0  0.019097    7.611523       0.351100  0.090309   
-374               1.0  0.019712    2.451971       0.366568  0.105693   
-375               1.0  0.041917    6.341678       0.755888  0.221485   
+373               1.0  0.019712    2.451971       0.366568  0.105693   
+374               1.0  0.019097    7.611523       0.351100  0.090309   
+375               1.0  0.022050    3.091422       0.398781  0.109109   
 376               1.0  0.016489    3.101266       0.297345  0.091999   
-377               1.0  0.022050    3.091422       0.398781  0.109109   
+377               1.0  0.041917    6.341678       0.755888  0.221485   
 
      certainty  kulczynski  
 0     0.898823    0.747641  
-1     0.785274    0.897188  
-2     0.974792    0.897188  
+1     0.974792    0.897188  
+2     0.785274    0.897188  
 3     0.480526    0.474062  
 4     0.998006    0.596924  
 ..         ...         ...  
-373   0.868620    0.521606  
-374   0.592165    0.459240  
-375   0.842313    0.555780  
+373   0.592165    0.459240  
+374   0.868620    0.521606  
+375   0.676524    0.480321  
 376   0.677551    0.488268  
-377   0.676524    0.480321  
+377   0.842313    0.555780  
 
 [378 rows x 14 columns]",1.3897058823529411
-0.05,526,3.6033560673703593,0.8848889983768172,2151.131742,"      support                                           itemsets
+0.05,526,3.6033560673703597,0.8848889983768172,1191.530417,"      support                                           itemsets
 0    0.168159                                         (AddImage)
 1    0.106875                                    (AdvProjCreate)
 2    0.118044                                  (CaptionedImages)
 3    0.174658                                         (CopyProj)
 4    0.106393                                  (ImageProperties)
 ..        ...                                                ...
-844  0.058492  (SendNow, ManageTab, ProjPreview, TestSend, Re...
-845  0.057000  (SendNow, ManageTab, ProjPreview, TxtBIUS, Txt...
-846  0.057915  (SendNow, ManageTab, ReEditProj, TestSend, Rep...
-847  0.052186  (SendNow, ManageTab, ReEditProj, TxtFontSizeCo...
-848  0.059455  (SendNow, ManageTab, ReEditProj, TxtBIUS, TxtF...
+844  0.058492  (TestSend, ManageTab, SendNow, ReportsTab, Pro...
+845  0.057000  (TxtFontSizeColor, TxtBIUS, ManageTab, SendNow...
+846  0.057915  (TestSend, ManageTab, SendNow, ReEditProj, Rep...
+847  0.052186  (TestSend, TxtFontSizeColor, ManageTab, SendNo...
+848  0.059455  (TxtFontSizeColor, TxtBIUS, ManageTab, SendNow...
 
 [849 rows x 2 columns]","                                           antecedents         consequents  \
 0                                    (ImageProperties)          (AddImage)   
-1                                           (AddImage)       (UploadImage)   
-2                                        (UploadImage)          (AddImage)   
+1                                        (UploadImage)          (AddImage)   
+2                                           (AddImage)       (UploadImage)   
 3                                      (AdvProjCreate)         (ManageTab)   
 4                                      (AdvProjCreate)       (ProjPreview)   
 ..                                                 ...                 ...   
-521  (TxtFontSizeColor, SendNow, TestSend, ReEditProj)         (ManageTab)   
-522  (TxtFontSizeColor, TestSend, ReEditProj, Manag...           (SendNow)   
-523          (SendNow, ReEditProj, ManageTab, TxtBIUS)  (TxtFontSizeColor)   
-524   (TxtFontSizeColor, SendNow, ReEditProj, TxtBIUS)         (ManageTab)   
-525  (TxtFontSizeColor, ReEditProj, ManageTab, TxtB...           (SendNow)   
+521  (TestSend, ReEditProj, TxtFontSizeColor, Manag...           (SendNow)   
+522  (TestSend, ReEditProj, TxtFontSizeColor, SendNow)         (ManageTab)   
+523  (TxtFontSizeColor, ReEditProj, ManageTab, TxtB...           (SendNow)   
+524   (TxtFontSizeColor, ReEditProj, SendNow, TxtBIUS)         (ManageTab)   
+525          (ReEditProj, ManageTab, SendNow, TxtBIUS)  (TxtFontSizeColor)   
 
      antecedent support  consequent support   support  confidence      lift  \
 0              0.106393            0.168159  0.097439    0.915837  5.446255   
-1              0.168159            0.140044  0.137108    0.815345  5.822051   
-2              0.140044            0.168159  0.137108    0.979031  5.822051   
+1              0.140044            0.168159  0.137108    0.979031  5.822051   
+2              0.168159            0.140044  0.137108    0.815345  5.822051   
 3              0.106875            0.638407  0.086800    0.812162  1.272169   
 4              0.106875            0.548286  0.106778    0.999099  1.822222   
 ..                  ...                 ...       ...         ...       ...   
-521            0.061958            0.638407  0.052186    0.842269  1.319328   
-522            0.060659            0.534373  0.052186    0.860317  1.609956   
-523            0.067302            0.260591  0.059455    0.883405  3.390003   
+521            0.060659            0.534373  0.052186    0.860317  1.609956   
+522            0.061958            0.638407  0.052186    0.842269  1.319328   
+523            0.069998            0.534373  0.059455    0.849381  1.589490   
 524            0.067302            0.638407  0.059455    0.883405  1.383763   
-525            0.069998            0.534373  0.059455    0.849381  1.589490   
+525            0.067302            0.260591  0.059455    0.883405  3.390003   
 
      representativity  leverage  conviction  zhangs_metric   jaccard  \
 0                 1.0  0.079548    9.883701       0.913587  0.550149   
-1                 1.0  0.113558    4.657093       0.995670  0.801351   
-2                 1.0  0.113558   39.669267       0.963118  0.801351   
+1                 1.0  0.113558   39.669267       0.963118  0.801351   
+2                 1.0  0.113558    4.657093       0.995670  0.801351   
 3                 1.0  0.018570    1.925025       0.239542  0.131818   
 4                 1.0  0.048180  501.402369       0.505214  0.194715   
 ..                ...       ...         ...            ...       ...   
-521               1.0  0.012631    2.292461       0.258025  0.080511   
-522               1.0  0.019771    3.333465       0.403331  0.096133   
-523               1.0  0.041917    6.341678       0.755888  0.221485   
+521               1.0  0.019771    3.333465       0.403331  0.096133   
+522               1.0  0.012631    2.292461       0.258025  0.080511   
+523               1.0  0.022050    3.091422       0.398781  0.109109   
 524               1.0  0.016489    3.101266       0.297345  0.091999   
-525               1.0  0.022050    3.091422       0.398781  0.109109   
+525               1.0  0.041917    6.341678       0.755888  0.221485   
 
      certainty  kulczynski  
 0     0.898823    0.747641  
-1     0.785274    0.897188  
-2     0.974792    0.897188  
+1     0.974792    0.897188  
+2     0.785274    0.897188  
 3     0.480526    0.474062  
 4     0.998006    0.596924  
 ..         ...         ...  
-521   0.563788    0.462006  
-522   0.700012    0.478988  
-523   0.842313    0.555780  
+521   0.700012    0.478988  
+522   0.563788    0.462006  
+523   0.676524    0.480321  
 524   0.677551    0.488268  
-525   0.676524    0.480321  
+525   0.842313    0.555780  
 
 [526 rows x 14 columns]",1.3915343915343916
-0.045000000000000005,831,3.882634139430549,0.886686044116429,1731.387148,"       support                                           itemsets
+0.045000000000000005,831,3.882634139430549,0.8866860441164289,1468.979316,"       support                                           itemsets
 0     0.168159                                         (AddImage)
 1     0.106875                                    (AdvProjCreate)
 2     0.118044                                  (CaptionedImages)
 3     0.174658                                         (CopyProj)
 4     0.045638                                       (DeleteProj)
 ...        ...                                                ...
-1159  0.045542  (SendNow, ManageTab, ReEditProj, TxtFontSizeCo...
-1160  0.052186  (SendNow, ManageTab, ReEditProj, TxtFontSizeCo...
-1161  0.059455  (SendNow, ManageTab, ReEditProj, TxtBIUS, TxtF...
-1162  0.048527  (SendNow, ReEditProj, ProjPreview, TestSend, R...
-1163  0.046168  (SendNow, ManageTab, ReEditProj, ProjPreview, ...
+1159  0.045542  (TxtFontSizeColor, ManageTab, SendNow, ReEditP...
+1160  0.052186  (TestSend, TxtFontSizeColor, ManageTab, SendNo...
+1161  0.059455  (TxtFontSizeColor, TxtBIUS, ManageTab, SendNow...
+1162  0.048527  (TestSend, SendNow, ReEditProj, ReportsTab, Pr...
+1163  0.046168  (TestSend, ManageTab, SendNow, ReEditProj, Rep...
 
 [1164 rows x 2 columns]","                                           antecedents         consequents  \
 0                                    (ImageProperties)          (AddImage)   
-1                                           (AddImage)       (UploadImage)   
-2                                        (UploadImage)          (AddImage)   
+1                                        (UploadImage)          (AddImage)   
+2                                           (AddImage)       (UploadImage)   
 3                                      (AdvProjCreate)         (ManageTab)   
 4                                      (AdvProjCreate)       (ProjPreview)   
 ..                                                 ...                 ...   
-826          (SendNow, ReEditProj, ManageTab, TxtBIUS)  (TxtFontSizeColor)   
-827   (TxtFontSizeColor, SendNow, ReEditProj, TxtBIUS)         (ManageTab)   
-828  (TxtFontSizeColor, ReEditProj, ManageTab, TxtB...           (SendNow)   
-829  (SendNow, ReEditProj, ProjPreview, TestSend, R...         (ManageTab)   
-830  (ManageTab, ReEditProj, ProjPreview, TestSend,...           (SendNow)   
+826  (TxtFontSizeColor, ReEditProj, ManageTab, TxtB...           (SendNow)   
+827   (TxtFontSizeColor, ReEditProj, SendNow, TxtBIUS)         (ManageTab)   
+828          (ReEditProj, ManageTab, SendNow, TxtBIUS)  (TxtFontSizeColor)   
+829  (TestSend, ManageTab, ReEditProj, ReportsTab, ...           (SendNow)   
+830  (TestSend, SendNow, ReEditProj, ReportsTab, Pr...         (ManageTab)   
 
      antecedent support  consequent support   support  confidence      lift  \
 0              0.106393            0.168159  0.097439    0.915837  5.446255   
-1              0.168159            0.140044  0.137108    0.815345  5.822051   
-2              0.140044            0.168159  0.137108    0.979031  5.822051   
+1              0.140044            0.168159  0.137108    0.979031  5.822051   
+2              0.168159            0.140044  0.137108    0.815345  5.822051   
 3              0.106875            0.638407  0.086800    0.812162  1.272169   
 4              0.106875            0.548286  0.106778    0.999099  1.822222   
 ..                  ...                 ...       ...         ...       ...   
-826            0.067302            0.260591  0.059455    0.883405  3.390003   
+826            0.069998            0.534373  0.059455    0.849381  1.589490   
 827            0.067302            0.638407  0.059455    0.883405  1.383763   
-828            0.069998            0.534373  0.059455    0.849381  1.589490   
-829            0.048527            0.638407  0.046168    0.951389  1.490253   
-830            0.056422            0.534373  0.046168    0.818259  1.531251   
+828            0.067302            0.260591  0.059455    0.883405  3.390003   
+829            0.056422            0.534373  0.046168    0.818259  1.531251   
+830            0.048527            0.638407  0.046168    0.951389  1.490253   
 
      representativity  leverage  conviction  zhangs_metric   jaccard  \
 0                 1.0  0.079548    9.883701       0.913587  0.550149   
-1                 1.0  0.113558    4.657093       0.995670  0.801351   
-2                 1.0  0.113558   39.669267       0.963118  0.801351   
+1                 1.0  0.113558   39.669267       0.963118  0.801351   
+2                 1.0  0.113558    4.657093       0.995670  0.801351   
 3                 1.0  0.018570    1.925025       0.239542  0.131818   
 4                 1.0  0.048180  501.402369       0.505214  0.194715   
 ..                ...       ...         ...            ...       ...   
-826               1.0  0.041917    6.341678       0.755888  0.221485   
+826               1.0  0.022050    3.091422       0.398781  0.109109   
 827               1.0  0.016489    3.101266       0.297345  0.091999   
-828               1.0  0.022050    3.091422       0.398781  0.109109   
-829               1.0  0.015188    7.438475       0.345751  0.072051   
-830               1.0  0.016017    2.562040       0.367685  0.084770   
+828               1.0  0.041917    6.341678       0.755888  0.221485   
+829               1.0  0.016017    2.562040       0.367685  0.084770   
+830               1.0  0.015188    7.438475       0.345751  0.072051   
 
      certainty  kulczynski  
 0     0.898823    0.747641  
-1     0.785274    0.897188  
-2     0.974792    0.897188  
+1     0.974792    0.897188  
+2     0.785274    0.897188  
 3     0.480526    0.474062  
 4     0.998006    0.596924  
 ..         ...         ...  
-826   0.842313    0.555780  
+826   0.676524    0.480321  
 827   0.677551    0.488268  
-828   0.676524    0.480321  
-829   0.865564    0.511853  
-830   0.609686    0.452328  
+828   0.842313    0.555780  
+829   0.609686    0.452328  
+830   0.865564    0.511853  
 
 [831 rows x 14 columns]",1.579847908745247
-0.04000000000000001,1312,4.17892222852093,0.8852901314205971,3671.117543,"       support                                           itemsets
+0.04000000000000001,1312,4.17892222852093,0.8852901314205969,2985.869958,"       support                                           itemsets
 0     0.168159                                         (AddImage)
 1     0.106875                                    (AdvProjCreate)
 2     0.118044                                  (CaptionedImages)
 3     0.174658                                         (CopyProj)
 4     0.045638                                       (DeleteProj)
 ...        ...                                                ...
-1579  0.042702  (SEDeleteElement, UploadImage, TxtFontSizeColo...
-1580  0.042124  (ImageProperties, SEDeleteElement, UploadImage...
-1581  0.042654  (SEDeleteElement, UploadImage, TxtFontSizeColo...
-1582  0.046168  (SendNow, ManageTab, ReEditProj, ProjPreview, ...
-1583  0.040006  (SendNow, ManageTab, ReEditProj, ProjPreview, ...
+1579  0.042702  (TxtFontSizeColor, SEDragResize, SEDeleteEleme...
+1580  0.042124  (SEDragResize, SEDeleteElement, UploadImage, S...
+1581  0.042654  (TxtFontSizeColor, SEDragResize, SEDeleteEleme...
+1582  0.046168  (TestSend, ManageTab, SendNow, ReEditProj, Rep...
+1583  0.040006  (TxtFontSizeColor, TxtBIUS, ManageTab, SendNow...
 
 [1584 rows x 2 columns]","                                            antecedents         consequents  \
 0                                     (ImageProperties)          (AddImage)   
-1                                            (AddImage)       (UploadImage)   
-2                                         (UploadImage)          (AddImage)   
+1                                         (UploadImage)          (AddImage)   
+2                                            (AddImage)       (UploadImage)   
 3                                       (AdvProjCreate)         (ManageTab)   
 4                                       (AdvProjCreate)       (ProjPreview)   
 ...                                                 ...                 ...   
-1307  (SendNow, ReEditProj, ProjPreview, TestSend, R...         (ManageTab)   
-1308  (ManageTab, ReEditProj, ProjPreview, TestSend,...           (SendNow)   
-1309  (SendNow, ManageTab, ReEditProj, ProjPreview, ...  (TxtFontSizeColor)   
-1310  (SendNow, ReEditProj, ProjPreview, TxtBIUS, Tx...         (ManageTab)   
-1311  (ManageTab, ReEditProj, ProjPreview, TxtBIUS, ...           (SendNow)   
+1307  (TestSend, ManageTab, ReEditProj, ReportsTab, ...           (SendNow)   
+1308  (TestSend, SendNow, ReEditProj, ReportsTab, Pr...         (ManageTab)   
+1309  (TxtFontSizeColor, TxtBIUS, ManageTab, ReEditP...           (SendNow)   
+1310  (TxtFontSizeColor, TxtBIUS, SendNow, ReEditPro...         (ManageTab)   
+1311  (TxtBIUS, ManageTab, SendNow, ReEditProj, Proj...  (TxtFontSizeColor)   
 
       antecedent support  consequent support   support  confidence      lift  \
 0               0.106393            0.168159  0.097439    0.915837  5.446255   
-1               0.168159            0.140044  0.137108    0.815345  5.822051   
-2               0.140044            0.168159  0.137108    0.979031  5.822051   
+1               0.140044            0.168159  0.137108    0.979031  5.822051   
+2               0.168159            0.140044  0.137108    0.815345  5.822051   
 3               0.106875            0.638407  0.086800    0.812162  1.272169   
 4               0.106875            0.548286  0.106778    0.999099  1.822222   
 ...                  ...                 ...       ...         ...       ...   
-1307            0.048527            0.638407  0.046168    0.951389  1.490253   
-1308            0.056422            0.534373  0.046168    0.818259  1.531251   
-1309            0.045879            0.260591  0.040006    0.871983  3.346173   
+1307            0.056422            0.534373  0.046168    0.818259  1.531251   
+1308            0.048527            0.638407  0.046168    0.951389  1.490253   
+1309            0.046505            0.534373  0.040006    0.860248  1.609827   
 1310            0.044868            0.638407  0.040006    0.891631  1.396649   
-1311            0.046505            0.534373  0.040006    0.860248  1.609827   
+1311            0.045879            0.260591  0.040006    0.871983  3.346173   
 
       representativity  leverage  conviction  zhangs_metric   jaccard  \
 0                  1.0  0.079548    9.883701       0.913587  0.550149   
-1                  1.0  0.113558    4.657093       0.995670  0.801351   
-2                  1.0  0.113558   39.669267       0.963118  0.801351   
+1                  1.0  0.113558   39.669267       0.963118  0.801351   
+2                  1.0  0.113558    4.657093       0.995670  0.801351   
 3                  1.0  0.018570    1.925025       0.239542  0.131818   
 4                  1.0  0.048180  501.402369       0.505214  0.194715   
 ...                ...       ...         ...            ...       ...   
-1307               1.0  0.015188    7.438475       0.345751  0.072051   
-1308               1.0  0.016017    2.562040       0.367685  0.084770   
-1309               1.0  0.028050    5.775874       0.734866  0.150136   
+1307               1.0  0.016017    2.562040       0.367685  0.084770   
+1308               1.0  0.015188    7.438475       0.345751  0.072051   
+1309               1.0  0.015155    3.331818       0.397291  0.073965   
 1310               1.0  0.011362    3.336676       0.297341  0.062191   
-1311               1.0  0.015155    3.331818       0.397291  0.073965   
+1311               1.0  0.028050    5.775874       0.734866  0.150136   
 
       certainty  kulczynski  
 0      0.898823    0.747641  
-1      0.785274    0.897188  
-2      0.974792    0.897188  
+1      0.974792    0.897188  
+2      0.785274    0.897188  
 3      0.480526    0.474062  
 4      0.998006    0.596924  
 ...         ...         ...  
-1307   0.865564    0.511853  
-1308   0.609686    0.452328  
-1309   0.826866    0.512751  
+1307   0.609686    0.452328  
+1308   0.865564    0.511853  
+1309   0.699864    0.467557  
 1310   0.700301    0.477148  
-1311   0.699864    0.467557  
+1311   0.826866    0.512751  
 
 [1312 rows x 14 columns]",1.578820697954272
-0.03500000000000001,2228,4.430001390170263,0.8850271847106062,4000.146164,"       support                                           itemsets
+0.03500000000000001,2228,4.430001390170263,0.8850271847106062,4232.346327,"       support                                           itemsets
 0     0.168159                                         (AddImage)
 1     0.106875                                    (AdvProjCreate)
 2     0.118044                                  (CaptionedImages)
 3     0.174658                                         (CopyProj)
 4     0.045638                                       (DeleteProj)
 ...        ...                                                ...
-2350  0.036203  (SendNow, ManageTab, ReEditProj, ProjPreview, ...
-2351  0.036877  (SendNow, ManageTab, ReEditProj, ProjPreview, ...
-2352  0.046168  (SendNow, ManageTab, ReEditProj, ProjPreview, ...
-2353  0.037069  (SendNow, ManageTab, ReEditProj, ProjPreview, ...
-2354  0.040006  (SendNow, ManageTab, ReEditProj, ProjPreview, ...
+2350  0.036203  (ReportsTab, ManageTab, SendNow, ReEditProj, O...
+2351  0.036877  (ManageTab, SendNow, ReEditProj, ReSchedProj, ...
+2352  0.046168  (TestSend, ManageTab, SendNow, ReEditProj, Rep...
+2353  0.037069  (TestSend, TxtFontSizeColor, ManageTab, SendNo...
+2354  0.040006  (TxtFontSizeColor, TxtBIUS, ManageTab, SendNow...
 
 [2355 rows x 2 columns]","                                            antecedents         consequents  \
 0                                     (ImageProperties)          (AddImage)   
-1                                            (AddImage)       (UploadImage)   
-2                                         (UploadImage)          (AddImage)   
+1                                         (UploadImage)          (AddImage)   
+2                                            (AddImage)       (UploadImage)   
 3                                       (AdvProjCreate)         (ManageTab)   
 4                                       (AdvProjCreate)       (ProjPreview)   
 ...                                                 ...                 ...   
-2223  (SendNow, ReEditProj, ProjPreview, TxtFontSize...         (ManageTab)   
-2224  (ManageTab, ReEditProj, ProjPreview, TxtFontSi...           (SendNow)   
-2225  (SendNow, ManageTab, ReEditProj, ProjPreview, ...  (TxtFontSizeColor)   
-2226  (SendNow, ReEditProj, ProjPreview, TxtBIUS, Tx...         (ManageTab)   
-2227  (ManageTab, ReEditProj, ProjPreview, TxtBIUS, ...           (SendNow)   
+2223  (TestSend, TxtFontSizeColor, ManageTab, ReEdit...           (SendNow)   
+2224  (TestSend, TxtFontSizeColor, SendNow, ReEditPr...         (ManageTab)   
+2225  (TxtFontSizeColor, TxtBIUS, ManageTab, ReEditP...           (SendNow)   
+2226  (TxtFontSizeColor, TxtBIUS, SendNow, ReEditPro...         (ManageTab)   
+2227  (TxtBIUS, ManageTab, SendNow, ReEditProj, Proj...  (TxtFontSizeColor)   
 
       antecedent support  consequent support   support  confidence      lift  \
 0               0.106393            0.168159  0.097439    0.915837  5.446255   
-1               0.168159            0.140044  0.137108    0.815345  5.822051   
-2               0.140044            0.168159  0.137108    0.979031  5.822051   
+1               0.140044            0.168159  0.137108    0.979031  5.822051   
+2               0.168159            0.140044  0.137108    0.815345  5.822051   
 3               0.106875            0.638407  0.086800    0.812162  1.272169   
 4               0.106875            0.548286  0.106778    0.999099  1.822222   
 ...                  ...                 ...       ...         ...       ...   
-2223            0.043183            0.638407  0.037069    0.858417  1.344622   
-2224            0.042991            0.534373  0.037069    0.862262  1.613595   
-2225            0.045879            0.260591  0.040006    0.871983  3.346173   
+2223            0.042991            0.534373  0.037069    0.862262  1.613595   
+2224            0.043183            0.638407  0.037069    0.858417  1.344622   
+2225            0.046505            0.534373  0.040006    0.860248  1.609827   
 2226            0.044868            0.638407  0.040006    0.891631  1.396649   
-2227            0.046505            0.534373  0.040006    0.860248  1.609827   
+2227            0.045879            0.260591  0.040006    0.871983  3.346173   
 
       representativity  leverage  conviction  zhangs_metric   jaccard  \
 0                  1.0  0.079548    9.883701       0.913587  0.550149   
-1                  1.0  0.113558    4.657093       0.995670  0.801351   
-2                  1.0  0.113558   39.669267       0.963118  0.801351   
+1                  1.0  0.113558   39.669267       0.963118  0.801351   
+2                  1.0  0.113558    4.657093       0.995670  0.801351   
 3                  1.0  0.018570    1.925025       0.239542  0.131818   
 4                  1.0  0.048180  501.402369       0.505214  0.194715   
 ...                ...       ...         ...            ...       ...   
-2223               1.0  0.009501    2.553925       0.267864  0.057514   
-2224               1.0  0.014096    3.380526       0.397348  0.068609   
-2225               1.0  0.028050    5.775874       0.734866  0.150136   
+2223               1.0  0.014096    3.380526       0.397348  0.068609   
+2224               1.0  0.009501    2.553925       0.267864  0.057514   
+2225               1.0  0.015155    3.331818       0.397291  0.073965   
 2226               1.0  0.011362    3.336676       0.297341  0.062191   
-2227               1.0  0.015155    3.331818       0.397291  0.073965   
+2227               1.0  0.028050    5.775874       0.734866  0.150136   
 
       certainty  kulczynski  
 0      0.898823    0.747641  
-1      0.785274    0.897188  
-2      0.974792    0.897188  
+1      0.974792    0.897188  
+2      0.785274    0.897188  
 3      0.480526    0.474062  
 4      0.998006    0.596924  
 ...         ...         ...  
-2223   0.608446    0.458241  
-2224   0.704188    0.465816  
-2225   0.826866    0.512751  
+2223   0.704188    0.465816  
+2224   0.608446    0.458241  
+2225   0.699864    0.467557  
 2226   0.700301    0.477148  
-2227   0.699864    0.467557  
+2227   0.826866    0.512751  
 
 [2228 rows x 14 columns]",1.6981707317073171
-0.030000000000000013,4257,4.816934631599373,0.8851118210037401,6397.98653,"       support                                           itemsets
+0.030000000000000013,4257,4.816934631599373,0.8851118210037401,6983.534026,"       support                                           itemsets
 0     0.168159                                         (AddImage)
 1     0.106875                                    (AdvProjCreate)
 2     0.118044                                  (CaptionedImages)
 3     0.174658                                         (CopyProj)
 4     0.045638                                       (DeleteProj)
 ...        ...                                                ...
-3757  0.030666  (SEDeleteElement, TxtIndentJustify, ReEditProj...
-3758  0.032977  (SEDeleteElement, TxtIndentJustify, TxtBIUS, T...
-3759  0.031003  (SEDeleteElement, UploadImage, TxtBIUS, TxtFon...
-3760  0.030714  (ImageProperties, SEDeleteElement, UploadImage...
-3761  0.030955  (SEDeleteElement, UploadImage, TxtBIUS, TxtFon...
+3757  0.030666  (TxtFontSizeColor, TxtIndentJustify, SEDragRes...
+3758  0.032977  (TxtFontSizeColor, TxtIndentJustify, SEDragRes...
+3759  0.031003  (TxtFontSizeColor, SEDragResize, SEDeleteEleme...
+3760  0.030714  (TxtFontSizeColor, SEDragResize, SEDeleteEleme...
+3761  0.030955  (TxtFontSizeColor, SEDragResize, SEDeleteEleme...
 
 [3762 rows x 2 columns]","                                            antecedents  \
 0                                     (ImageProperties)   
-1                                            (AddImage)   
-2                                         (UploadImage)   
+1                                         (UploadImage)   
+2                                            (AddImage)   
 3                                       (AdvProjCreate)   
 4                                       (AdvProjCreate)   
 ...                                                 ...   
-4252  (UploadImage, TxtBIUS, AddImage, SEDragResize,...   
-4253  (TxtFontSizeColor, TxtBIUS, SEDeleteElement, U...   
-4254  (SEDragResize, TxtBIUS, SEDeleteElement, Uploa...   
-4255  (SEDragIn, TxtBIUS, SEDeleteElement, UploadImage)   
-4256     (SEDragIn, SEDragResize, TxtBIUS, UploadImage)   
+4252  (SEDeleteElement, TxtBIUS, UploadImage, SEDrag...   
+4253  (TxtFontSizeColor, UploadImage, SEDeleteElemen...   
+4254  (UploadImage, SEDragResize, SEDeleteElement, T...   
+4255     (UploadImage, SEDragResize, SEDragIn, TxtBIUS)   
+4256  (UploadImage, SEDragIn, SEDeleteElement, TxtBIUS)   
 
                                         consequents  antecedent support  \
 0                                        (AddImage)            0.106393   
-1                                     (UploadImage)            0.168159   
-2                                        (AddImage)            0.140044   
+1                                        (AddImage)            0.140044   
+2                                     (UploadImage)            0.168159   
 3                                       (ManageTab)            0.106875   
 4                                     (ProjPreview)            0.106875   
 ...                                             ...                 ...   
-4252            (TxtFontSizeColor, SEDeleteElement)            0.035914   
-4253             (AddImage, SEDragResize, SEDragIn)            0.037599   
+4252               (TxtFontSizeColor, SEDragResize)            0.035432   
+4253             (SEDragIn, SEDragResize, AddImage)            0.037599   
 4254         (TxtFontSizeColor, SEDragIn, AddImage)            0.034710   
-4255     (TxtFontSizeColor, SEDragResize, AddImage)            0.035529   
-4256  (TxtFontSizeColor, SEDeleteElement, AddImage)            0.036010   
+4255  (TxtFontSizeColor, SEDeleteElement, AddImage)            0.036010   
+4256     (TxtFontSizeColor, SEDragResize, AddImage)            0.035529   
 
       consequent support   support  confidence       lift  representativity  \
 0               0.168159  0.097439    0.915837   5.446255               1.0   
-1               0.140044  0.137108    0.815345   5.822051               1.0   
-2               0.168159  0.137108    0.979031   5.822051               1.0   
+1               0.168159  0.137108    0.979031   5.822051               1.0   
+2               0.140044  0.137108    0.815345   5.822051               1.0   
 3               0.638407  0.086800    0.812162   1.272169               1.0   
 4               0.548286  0.106778    0.999099   1.822222               1.0   
 ...                  ...       ...         ...        ...               ...   
-4252            0.090988  0.030955    0.861930   9.473024               1.0   
+4252            0.103649  0.030955    0.873641   8.428833               1.0   
 4253            0.083141  0.030955    0.823303   9.902524               1.0   
 4254            0.067784  0.030955    0.891817  13.156833               1.0   
-4255            0.071298  0.030955    0.871274  12.220187               1.0   
-4256            0.066821  0.030955    0.859626  12.864657               1.0   
+4255            0.066821  0.030955    0.859626  12.864657               1.0   
+4256            0.071298  0.030955    0.871274  12.220187               1.0   
 
       leverage  conviction  zhangs_metric   jaccard  certainty  kulczynski  
 0     0.079548    9.883701       0.913587  0.550149   0.898823    0.747641  
-1     0.113558    4.657093       0.995670  0.801351   0.785274    0.897188  
-2     0.113558   39.669267       0.963118  0.801351   0.974792    0.897188  
+1     0.113558   39.669267       0.963118  0.801351   0.974792    0.897188  
+2     0.113558    4.657093       0.995670  0.801351   0.785274    0.897188  
 3     0.018570    1.925025       0.239542  0.131818   0.480526    0.474062  
 4     0.048180  501.402369       0.505214  0.194715   0.998006    0.596924  
 ...        ...         ...            ...       ...        ...         ...  
-4252  0.027687    6.583719       0.927756  0.322629   0.848110    0.601071  
+4252  0.027283    7.093701       0.913735  0.286287   0.859030    0.586147  
 4253  0.027829    5.188892       0.934138  0.344772   0.807281    0.597813  
 4254  0.028602    8.617026       0.957219  0.432705   0.883951    0.674247  
-4255  0.028422    7.214549       0.951991  0.407995   0.861391    0.652720  
-4256  0.028549    6.647791       0.956719  0.430676   0.849574    0.661441  
+4255  0.028549    6.647791       0.956719  0.430676   0.849574    0.661441  
+4256  0.028422    7.214549       0.951991  0.407995   0.861391    0.652720  
 
 [4257 rows x 14 columns]",1.9106822262118492

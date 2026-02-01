@@ -1,6 +1,7 @@
 version = 1
 revision = 3
 requires-python = ">=3.10"
+<<<<<<< HEAD
 resolution-markers = [
     "python_full_version >= '3.14' and sys_platform == 'win32'",
     "python_full_version >= '3.14' and sys_platform == 'emscripten'",
@@ -10,12 +11,15 @@ resolution-markers = [
     "python_full_version >= '3.11' and python_full_version < '3.14' and sys_platform != 'emscripten' and sys_platform != 'win32'",
     "python_full_version < '3.11'",
 ]
+=======
+>>>>>>> 7e65783739ce75df39fbc788616948e0dfbea207
 
 [[package]]
 name = "5580-dm-a3-association"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+<<<<<<< HEAD
     { name = "duckdb" },
     { name = "ipykernel" },
     { name = "jupyter-console" },
@@ -33,11 +37,15 @@ dependencies = [
     { name = "ruff" },
     { name = "seaborn" },
     { name = "sqlalchemy" },
+=======
+    { name = "ruff" },
+>>>>>>> 7e65783739ce75df39fbc788616948e0dfbea207
     { name = "ty" },
 ]
 
 [package.metadata]
 requires-dist = [
+<<<<<<< HEAD
     { name = "duckdb", specifier = ">=1.4.4" },
     { name = "ipykernel", specifier = ">=7.1.0" },
     { name = "jupyter-console", specifier = ">=6.6.3" },
@@ -52,10 +60,14 @@ requires-dist = [
     { name = "ruff", specifier = ">=0.14.14" },
     { name = "seaborn", specifier = ">=0.13.2" },
     { name = "sqlalchemy", specifier = ">=2.0.46" },
+=======
+    { name = "ruff", specifier = ">=0.14.14" },
+>>>>>>> 7e65783739ce75df39fbc788616948e0dfbea207
     { name = "ty", specifier = ">=0.0.14" },
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "anyio"
 version = "4.12.1"
 source = { registry = "https://pypi.org/simple" }
@@ -2625,6 +2637,8 @@ wheels = [
 ]
 
 [[package]]
+=======
+>>>>>>> 7e65783739ce75df39fbc788616948e0dfbea207
 name = "ruff"
 version = "0.14.14"
 source = { registry = "https://pypi.org/simple" }
@@ -2651,6 +2665,7 @@ wheels = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "scikit-learn"
 version = "1.7.2"
 source = { registry = "https://pypi.org/simple" }
@@ -3133,6 +3148,8 @@ wheels = [
 ]
 
 [[package]]
+=======
+>>>>>>> 7e65783739ce75df39fbc788616948e0dfbea207
 name = "ty"
 version = "0.0.14"
 source = { registry = "https://pypi.org/simple" }
@@ -3155,6 +3172,7 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/b6/d9/c569c9961760e20e0a4bc008eeb1415754564304fd53997a371b7cf3f864/ty-0.0.14-py3-none-win_amd64.whl", hash = "sha256:e312ff9475522d1a33186657fe74d1ec98e4a13e016d66f5758a452c90ff6409", size = 10437980, upload-time = "2026-01-27T00:57:36.422Z" },
     { url = "https://files.pythonhosted.org/packages/ad/0c/186829654f5bfd9a028f6648e9caeb11271960a61de97484627d24443f91/ty-0.0.14-py3-none-win_arm64.whl", hash = "sha256:b6facdbe9b740cb2c15293a1d178e22ffc600653646452632541d01c36d5e378", size = 9885831, upload-time = "2026-01-27T00:57:49.747Z" },
 ]
+<<<<<<< HEAD
 
 [[package]]
 name = "typing-extensions"
@@ -3227,3 +3245,5 @@ sdist = { url = "https://files.pythonhosted.org/packages/2c/41/aa4bf9664e4cda14c
 wheels = [
     { url = "https://files.pythonhosted.org/packages/34/db/b10e48aa8fff7407e67470363eac595018441cf32d5e1001567a7aeba5d2/websocket_client-1.9.0-py3-none-any.whl", hash = "sha256:af248a825037ef591efbf6ed20cc5faa03d3b47b9e5a2230a529eeee1c1fc3ef", size = 82616, upload-time = "2025-10-07T21:16:34.951Z" },
 ]
+=======
+>>>>>>> 7e65783739ce75df39fbc788616948e0dfbea207

@@ -36,7 +36,7 @@ In contrast, the FP-Growth algorithm incurs a significant "architectural tax" by
 
 Thus, simple \textbf{Apriori algorithm was superior} for our dataset to perform Association Rule Mining.
 
-\subsection{The Crossover Theory: When FP-Growth Becomes Superior}
+\subsection[Crossover Theory]{The Crossover Theory: When FP-Growth Becomes Superior}
 While Apriori dominated the primary experiments, the theoretical crossover point where FP-Growth would become the superior choice was also explored. FP-Growth is mathematically superior under the following conditions:
 \begin{enumerate}
     \item \textbf{Lower Support Thresholds:} As support approaches the \textit{Performance Wall} the number of candidates in Apriori grows combinatorially ($C_{n}^{k}$), leading to CPU exhaustion, which was observed for support $\sigma<0.2$ for user basket, and $\sigma<0.045$ for session basket.

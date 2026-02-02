@@ -1,0 +1,82 @@
+\section{Appendix B: Extended Ruleset Analysis}
+%\addcontentsline{toc}{section}{Appendix B}
+\label{sec:app_b}
+
+This section provides the full technical breakdown of the elite association rules mined at both the user and session levels. These rules represent the most reliable and significant behavioral patterns identified during the analysis.
+
+\subsection*{User-Level Strategic Workflows}
+The following table details the top-tier rules mined from user-aggregated baskets. These rules define the \textit{Content Creator}, \textit{Data Investigator}, and \textit{Campaign Manager} personas discussed in \autoref{sec:5_results} by capturing the relationships between high-level platform interactions.
+
+\begin{table}[H]
+	\centering
+	\caption{User-Level Elite Ruleset: Behavioral Signatures and Metrics}
+	\label{tab:user_elite_rules}
+	\begin{small}
+		\begin{tabular}{@{}clp{3.5cm}p{1.5cm}lll@{}}
+			\toprule
+			\textbf{ID} & \textbf{Antecedents} & \textbf{Consequents} & \textbf{Supp.} & \textbf{Conf.} & \textbf{Lift} \\
+			\midrule
+			1 & {OpenData} & {OpensAndBounces} & 0.233 & 0.934 & 3.51 \\
+			2 & {OpensAndBounces} & {OpenData} & 0.233 & 0.878 & 3.51 \\
+			3 & {OpenReport, OpenData} & {OpensAndBounces} & 0.233 & 0.934 & 3.51 \\
+			4 & {OpenReport, OpensAndBounces} & {OpenData} & 0.233 & 0.878 & 3.51 \\
+			5 & {OpenData} & {OpenReport, OpensAndBounces} & 0.233 & 0.934 & 3.51 \\
+			6 & {OpensAndBounces} & {OpenReport, OpenData} & 0.233 & 0.878 & 3.51 \\
+			7 & {OpenReport, ReportsTab, SendNow} & {OpensAndBounces, ManageTab} & 0.237 & 0.791 & 3.14 \\
+			8 & {OpensAndBounces, ManageTab} & {OpenReport, ReportsTab, SendNow} & 0.237 & 0.943 & 3.14 \\
+			9 & {OpensAndBounces, SendNow} & {OpenReport, ManageTab, ReportsTab} & 0.237 & 0.996 & 3.14 \\
+			10 & {OpenReport, ManageTab, ReportsTab} & {OpensAndBounces, SendNow} & 0.237 & 0.748 & 3.14 \\
+			11 & {AddImage, SendNow} & {ManageTab, UploadImage} & 0.243 & 0.835 & 3.14 \\
+			12 & {ManageTab, UploadImage} & {AddImage, SendNow} & 0.243 & 0.914 & 3.14 \\
+			13 & {OpensAndBounces, ReportsTab, SendNow} & {OpenReport, ManageTab} & 0.237 & 1.000 & 3.14 \\
+			14 & {OpensAndBounces, SendNow} & {OpenReport, ManageTab} & 0.238 & 1.000 & 3.14 \\
+			15 & {OpenReport, ManageTab} & {OpensAndBounces, SendNow} & 0.238 & 0.748 & 3.14 \\
+			16 & {OpenReport, ManageTab} & {OpensAndBounces, ReportsTab, SendNow} & 0.237 & 0.745 & 3.14 \\
+			17 & {OpensAndBounces, ManageTab} & {OpenReport, SendNow} & 0.238 & 0.946 & 3.14 \\
+			18 & {OpenReport, SendNow} & {OpensAndBounces, ManageTab} & 0.238 & 0.790 & 3.14 \\
+			19 & {OpensAndBounces, ManageTab, ReportsTab} & {OpenReport, SendNow} & 0.237 & 0.946 & 3.14 \\
+			20 & {OpenReport, SendNow} & {OpensAndBounces, ManageTab, ReportsTab} & 0.237 & 0.787 & 3.14 \\
+			\bottomrule
+		\end{tabular}
+	\end{small}
+\end{table}
+
+\subsection*{Session-Level Tactical Rules}
+The session-level rules capture granular, short-term interactions. These are particularly useful for real-time feature recommendations and identifying immediate intent during a single platform visit.
+
+\begin{table}[H]
+	\centering
+	\caption{Session-Level Elite Ruleset: Interaction Sequences and Metrics}
+	\label{tab:session_elite_rules}
+	\begin{small}
+		\begin{tabular}{@{}clp{3.5cm}p{1.5cm}lll@{}}
+			\toprule
+			\textbf{ID} & \textbf{Antecedents} & \textbf{Consequents} & \textbf{Supp.} & \textbf{Conf.} & \textbf{Lift} \\
+			\midrule
+			1 & {UploadImage, TxtBIUS} & {TxtFontSizeColor, AddImage} & 0.048 & 0.930 & 10.00 \\
+			2 & {OpenReportList, OpenReport, OpensAndBounces} & {OpenData} & 0.048 & 0.904 & 8.93 \\
+			3 & {OpenReportList, OpensAndBounces} & {OpenReport, OpenData} & 0.048 & 0.902 & 8.93 \\
+			4 & {OpenReportList, OpensAndBounces} & {OpenData} & 0.048 & 0.903 & 8.92 \\
+			5 & {OpenReportList, SendNow} & {OpenReport, ReportsTab, ManageTab} & 0.048 & 0.955 & 8.89 \\
+			6 & {OpenReportList, ReportsTab, SendNow} & {OpenReport, ManageTab} & 0.048 & 0.962 & 8.84 \\
+			7 & {OpenReportList, SendNow} & {OpenReport, ManageTab} & 0.048 & 0.960 & 8.81 \\
+			8 & {OpenData, ManageTab} & {OpenReport, ReportsTab} & 0.058 & 0.996 & 5.98 \\
+			9 & {OpenReportList, SendNow, ManageTab} & {OpenReport, ReportsTab} & 0.048 & 0.995 & 5.98 \\
+			10 & {OpenReportList, ProjPreview, ManageTab} & {OpenReport, ReportsTab} & 0.046 & 0.994 & 5.97 \\
+			11 & {OpensAndBounces, ManageTab} & {OpenReport, ReportsTab} & 0.049 & 0.993 & 5.97 \\
+			12 & {OpenReportList, SendNow} & {OpenReport, ReportsTab} & 0.050 & 0.992 & 5.96 \\
+			13 & {SEDragResize, SEDeleteElement, SEDragMove} & {SEDragIn} & 0.048 & 0.912 & 5.96 \\
+			14 & {OpenReportList, ManageTab} & {OpenReport, ReportsTab} & 0.071 & 0.992 & 5.96 \\
+			15 & {TxtFontSizeColor, UploadImage, CaptionedImages} & {AddImage} & 0.045 & 1.000 & 5.95 \\
+			16 & {UploadImage, CaptionedImages} & {AddImage} & 0.064 & 1.000 & 5.95 \\
+			17 & {TxtFontSizeColor, UploadImage, ImageProperties} & {AddImage} & 0.050 & 1.000 & 5.95 \\
+			18 & {UploadImage, MultiImageElemen} & {AddImage} & 0.047 & 1.000 & 5.95 \\
+			19 & {ReEditProj, CaptionedImages, UploadImage} & {AddImage} & 0.045 & 1.000 & 5.95 \\
+			20 & {TxtFontSizeColor, UploadImage, SEDragResize} & {AddImage} & 0.060 & 0.999 & 5.94 \\
+			\bottomrule
+		\end{tabular}
+	\end{small}
+\end{table}
+
+\subsection*{Observation on Lift and Granularity}
+As observed in the tables, session-level rules yield significantly higher Lift values (up to $L=10.00$) compared to user-level rules ($L \approx 3.14$). This highlights the difference between \textit{tactical consistency} and \textit{strategic habit}. While users have broad strategic patterns that repeat across months, their session-to-session behaviors are highly deterministic, particularly during specialized tasks like content editing and data auditing.

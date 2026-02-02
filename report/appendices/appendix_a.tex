@@ -1,17 +1,27 @@
-\section[Appendix]{Appendix}
+\section{Appendix A}
+%\addcontentsline{toc}{section}{Appendix A}
 \label{sec:app_a}
 
-\subsection{Project Repository and Artifacts}
+\subsection*{Project Repository and Artifacts}
 \begin{itemize}
-    \item \textbf{Source Code (GitHub):} \href{https://github.com/bhavik-knight/5580-dm-a3-association}{ARM Project Repository}
+    \item \textbf{Source Code (GitHub)}
+   	\href{https://github.com/bhavik-knight/5580-dm-a3-association}{ARM Project Repository}
     \label{sec:app_github}
     \item \textbf{Exploratory Notebooks:} Detailed analysis of the 9-step tuning lifecycle, one-hot encoding, and algorithmic benchmarking is available in the \texttt{/code} directory of the repository.
 \end{itemize}
 
-\subsection[Video]{Video Link}
-\href{https://youtube.com/}{Youtube}
+\subsection*{Video Link}
+\href{https://youtu.be/xrPDw7u3dTg}{Youtube}
 
-\subsection[Machine]{Benchmarking Machine}
+\subsection*{Chat Sessions}
+\begin{itemize}
+\item{\href{https://gemini.google.com/share/c6e803353fa5}{Gemini}}
+\item{\href{https://chat.deepseek.com/a/chat/s/35a9bebd-4cfc-4e5c-9053-30258ad035f9}{DeepSeek 1}}
+\item{\href{https://chat.deepseek.com/a/chat/s/2194238e-1cf6-4836-8760-ffebf563540e}{DeepSeek 2}}
+
+\end{itemize}
+
+\subsection*{Benchmarking Machine Specification}
 \begin{table}[htbp]
 	\centering
 	\caption{Machine Architecture Specifications}
@@ -29,49 +39,27 @@
 		OS Architecture & 64-bit \\
 		Desktop Environment & GNOME (typically) \\
 		\midrule
-		Graphics & [e.g., NVIDIA RTX 4070, Intel UHD Graphics] \\
+		Graphics & NVIDIA RTX 4070 \\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
 
-
-\subsection{Mastery Tier: Elite Association Rules (User Level)}
-The following table summarizes the high-impact rules discovered at the User-Level ($\sigma=0.23, \gamma=0.60, L \ge 3.0$). These rules represent the "Strategic Personas" identified in our analysis.
-
-\begin{table}[H]
-\centering
-\caption{Strategic Elite Rules - SimplyCast User Personas}
-\label{tab:elite_rules}
-\begin{small}
-\begin{tabular}{lllcc}
-\hline
-\textbf{Antecedent} & \textbf{Consequent} & \textbf{Support} & \textbf{Conf.} & \textbf{Lift} \\ \hline
-\texttt{OpenData} & \texttt{OpensAndBounces} & 0.233 & 0.933 & 3.51 \\
-\texttt{OpenReport, OpenData} & \texttt{OpensAndBounces} & 0.233 & 0.933 & 3.51 \\
-\texttt{AddImage, SendNow} & \texttt{UploadImage} & 0.243 & 0.835 & 3.14 \\
-\texttt{OpenReport, SendNow} & \texttt{ManageTab} & 0.238 & 0.790 & 3.14 \\
-\texttt{ReportsTab, SendNow} & \texttt{OpenReport} & 0.237 & 0.996 & 3.14 \\
-\hline
-\end{tabular}
-\end{small}
-\end{table}
-
-\subsection{Diagnostic Visualizations}
+\subsection*{Visualizations}
 The following figures illustrate the sensitivity analysis and performance benchmarking conducted during the study.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{figures/apriori_user_confidence_tuning.pdf}
-    \caption{Discovery Frontier: Mapping the Lift Stability Plateau for User-Level Personas.}
-    \label{fig:conf_bubble}
-\end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/user_crossover.pdf}
     \caption{User-Level Performance Wall: Comparison of Apriori and FP-Growth efficiency.}
-    \label{fig:user_crossover}
+    \label{fig:user_benchmarking}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/session_crossover.pdf}
+	\caption{Session-Level Performance Wall: Comparison of Apriori and FP-Growth efficiency.}
+	\label{fig:session_benchmarking}
 \end{figure}
 
 \begin{figure}[H]
@@ -81,10 +69,17 @@ The following figures illustrate the sensitivity analysis and performance benchm
 	\label{fig:session_itemset_donut}
 \end{figure}
 
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/apriori_user_itemset_spiral_donut.pdf}
     \caption{User Itemset Distribution}
     \label{fig:user_itemset_donut}
 \end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/plotly.png}
+	\caption{Session hyper-parameter Tuning}
+	\label{fig:plotly_session}
+\end{figure}
+

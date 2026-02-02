@@ -1,19 +1,16 @@
-\section{Theoretical Framework}
-\label{sec:theoretical_framework}
+\section{Introduction and Overview}
+\label{sec:intro}
 
-Association Rule Mining (ARM) is an \textbf{unsupervised learning} technique for discovering hidden relationships in large datasets. Unlike supervised learning, ARM identifies local structures by uncovering sets of items that frequently co-occur. While ARM defines the objective, the \textbf{Apriori Algorithm} is the classical methodology used to solve this task efficiently.
+Association Rule Mining (ARM), often referred to as \textbf{Market Basket Analysis} in business intelligence, is an \textbf{unsupervised learning} technique for discovering hidden relationships in large datasets. Unlike supervised learning, ARM identifies local structures by uncovering sets of items that frequently co-occur. While ARM defines the objective, the \textbf{Apriori Algorithm} is the classical methodology used to solve this task efficiently.
 
 \subsection{The Apriori Algorithm}
-The Apriori algorithm uses a \textit{level-wise search}, leveraging frequent $k$-itemsets to explore $(k+1)$-candidates. Its efficiency stems from pruning the search space before database support counting.
-
-\subsubsection{Join-and-Prune Logic}
-The algorithm iterates through two primary steps at each level $k$:
+The Apriori algorithm uses a \textit{level-wise search}, leveraging frequent $k$-itemsets to explore $(k+1)$-candidates. Its efficiency stems from pruning the search space before database support counting. The algorithm iterates through two primary steps at each level $k$:
 \begin{enumerate}
 \item \textbf{Join Step ($L_{k-1} \Join L_{k-1}$):} Generates candidate $k$-itemsets ($C_k$) by joining frequent $(k-1)$-itemsets ($L_{k-1}$) with themselves.
 \item \textbf{Pruning Step:} For any candidate in $C_k$, the algorithm evaluates its $(k-1)$-subsets. If any subset is missing from $L_{k-1}$, the candidate is pruned; by the Downward Closure Property, it cannot be frequent \cite{geeksforgeeks_apriori}.
 \end{enumerate}
 
-\subsection{Key Metrics in ARM}
+\paragraph{\textbf{Key Metrics in ARM}}: 
 The significance of discovered rules is quantified using three mathematical pillars:
 \begin{itemize}
 \item \textbf{Support ($\sigma$):} Frequency of an itemset in the total transaction population.
@@ -24,4 +21,29 @@ $$ \sigma(A \rightarrow B) = P(A \cup B) = \frac{\text{Count}(A \cup B)}{\text{T
 \item \textbf{Lift ($L$):} Strength of a rule by comparing observed support to expected support if $A$ and $B$ were independent.
 \[ L(A \rightarrow B) = \frac{\gamma(A \rightarrow B)}{\sigma(B)} \]
 $L > 1$ indicates a positive correlation, while $L = 1$ suggests item independence.
+\end{itemize}
+
+\subsection{Objectives}
+\label{sec:objectives}
+
+The SimplyCast behavioral dataset presents a high-cardinality environment with over 39,000 distinct milestones. Traditional descriptive statistics are insufficient for uncovering the latent logic of user interaction within such a sparse and complex feature space. This project utilizes Association Rule Mining (ARM) to transition from simple frequency counts to a structured understanding of user intent and platform utility.
+
+\subsection{Analytical Bipartition: Action vs. Habit}
+To provide a holistic view of the SimplyCast ecosystem, the research is divided into two distinct analytical granularities. This dual-lens approach allows for the differentiation between transient software mechanics and long-term professional objectives.
+
+\subsubsection{Objective I: Tactical Session-Level Discovery}
+The primary goal of the session-level analysis is to map the \textbf{Micro-Mechanics} of the user interface. By focusing on a single interaction window, this objective seeks to:
+\begin{itemize}
+	\item Identify immediate, sequential transitions between milestones.
+	\item Uncover functional coupling (e.g., feature sets that are consistently used in tandem).
+	\item Provide data-driven insights for \textbf{UI/UX Optimization}, such as streamlining menu hierarchies and feature bundling.
+\end{itemize}
+
+
+\subsubsection{Objective II: Strategic User-Level Synthesis}
+The user-level analysis shifts focus toward identifying \textbf{Macro-Habits} and long-term behavioral intent. By aggregating a user's entire historical footprint, this objective aims to:
+\begin{itemize}
+	\item Decode the "Strategic Fingerprint" of different user classes.
+	\item Synthesize established rules into \textbf{Professional Personas} (e.g., Content Creators vs. Data Investigators).
+	\item Enable \textbf{Predictive Customer Success} strategies, allowing SimplyCast to personalize onboarding and identify churn risks when a user's behavioral patterns deviate from their established archetype.
 \end{itemize}

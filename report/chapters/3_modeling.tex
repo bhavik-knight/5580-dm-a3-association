@@ -1,62 +1,61 @@
 \section[Apriori]{Apriori Algorithm \& Hyper-parameter Tuning}
 \label{sec:3_modeling}
 
-The extraction of non-trivial behavioral patterns from high-dimensional interaction data was governed by a systematic 9-step tuning lifecycle. This process was executed on an \textbf{Intel Core i9} workstation with \textbf{32GB of DDR5 RAM}, ensuring that the "Exponential Explosion" of candidate itemsets remained computationally manageable.
-
-\subsection{The Support Sweep: Identifying the Interaction Elbow}
-A broad "Support Sweep" was performed to identify the boundary between statistical sparsity and combinatorial saturation. This phase involved iteratively adjusting the minimum support threshold ($\sigma$) and monitoring the resultant rule density.
+The extraction of non-trivial behavioral patterns from high-dimensional interaction data was governed by a systematic 9-step tuning lifecycle. This algorithm was executed on the machine with specification mentioned in \autoref{tab:machine}, ensuring that the "Exponential Explosion" of candidate itemsets remained computationally manageable.
 
 \begin{figure}[ht]
 	\centering
-	\begin{minipage}{0.45\textwidth}
-		\centering
+	\begin{minipage}{0.47\textwidth}
 		\includegraphics[width=\linewidth]{figures/apriori_user_support_tuning.pdf}
 		\caption{User Support Tuning}
 		\label{fig:user_support_elbow}
 	\end{minipage}
 	\hspace{0.02\textwidth}
-	\begin{minipage}{0.48\textwidth}
-		\centering
+	\begin{minipage}{0.47\textwidth}
 		\includegraphics[width=\linewidth]{figures/apriori_session_support_tuning.pdf}
-		\caption{Support Elbow Analysis}
+		\caption{Session Support Tuning}
 		\label{fig:session_support_elbow}
 	\end{minipage}
 \end{figure}
 
-\begin{enumerate}
-	\item \textbf{User-Level Support Elbow ($\sigma = 0.23$):} For aggregated user personas, the initial sweep revealed that behavioral rules are fragmented above $\sigma = 0.50$. The optimal "Support Elbow" was identified at \textbf{0.23}. At this threshold, the algorithm transition from identifying generic interactions to capturing established behavioral signatures shared by a significant "Mastery Tier" of the user population. Further lowering the support explode candidate rules.
-
-    \item \textbf{Session-Level Support Elbow ($\sigma = 0.045$):} Due to the granularity of single-interaction windows, the session support floor was found to be significantly lower. The elbow was pinpointed at \textbf{0.045}. Settings below this coordinate triggered a non-linear spike in candidate generation, while settings above it failed to capture the local functional transitions (e.g., report loading to exporting) that define platform utility.
-\end{enumerate}
+\subsection{The Support Sweep: Identifying the Interaction Elbow}
+A broad "Support Sweep" was performed to identify the boundary between statistical sparsity and combinatorial saturation. This phase involved iteratively adjusting the minimum support threshold ($\sigma$) and monitoring the resultant rule density.
 
 
+
+\textbf{User-Level Support Elbow ($\sigma = 0.23$):} For aggregated user personas, the initial sweep revealed that behavioral rules are fragmented above $\sigma = 0.50$. The optimal "Support Elbow" was identified at \textbf{0.23}. At this threshold, the algorithm transition from identifying generic interactions to capturing established behavioral signatures shared by a significant "Mastery Tier" of the user population. Further lowering the support explode candidate rules.
+
+
+\textbf{Session-Level Support Elbow ($\sigma = 0.045$):} Due to the granularity of single-interaction windows, the session support floor was found to be significantly lower. The elbow was pinpointed at \textbf{0.045}. Settings below this coordinate triggered a non-linear spike in candidate generation, while settings above it failed to capture the local functional transitions (e.g., report loading to exporting) that define platform utility.
+
+\clearpage
 \subsection{Lift Stability and the Confidence Plateau}
-Once the support elbows were established, a sensitivity analysis was conducted on the confidence threshold ($\gamma$) to ensure the reliability of inferred "If-Then" relationships. Confidence was swept from $0.10$ to $0.90$ while monitoring the \textbf{Average Lift ($L$)}. A "Lift Stability Plateau" was observed in the confidence range of $0.55-0.65$ for User \autoref{fig:user_confidence} and in the confidence range $0.75-0.80$ for Session transitions \autoref{fig:session_confidence}. 
 
 \begin{figure}[ht]
 	\centering
-	\begin{minipage}{0.45\textwidth}
+	\begin{minipage}{0.47\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figures/apriori_user_confidence_tuning.pdf}
 		\caption{User Confidence Tuning}
 		\label{fig:user_confidence}
 	\end{minipage}
 	\hspace{0.02\textwidth}
-	\begin{minipage}{0.48\textwidth}
+	\begin{minipage}{0.47\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figures/apriori_session_confidence_tuning.pdf}
 		\caption{Session Confidence Tuning}
 		\label{fig:session_confidence}
 	\end{minipage}
 \end{figure}
-
-
+Once the support elbows were established, a sensitivity analysis was conducted on the confidence threshold ($\gamma$) to ensure the reliability of inferred "If-Then" relationships. Confidence was swept from $0.10$ to $0.90$ while monitoring the \textbf{Average Lift ($L$)}. A "Lift Stability Plateau" was observed in the confidence range of $0.55-0.65$ for User \autoref{fig:user_confidence} \& in the confidence range $0.75-0.80$ for Session transitions \autoref{fig:session_confidence}. 
 
 
 \begin{itemize}
     \item \textbf{Filtering Triviality:} Lower confidence thresholds yielded a higher volume of rules, but these were frequently characterized by low lift values, representing background noise or random behavioral overlaps.
     \item \textbf{Metric Fixation:} By fixing confidence at the plateau was the most crucial step for the resulting rules-set to be non-trivial. Rules retained after this gate exhibited a higher Lift than stabilized one, meaning the discovered patterns were at least \textbf{3x more likely} for user and \textbf{4x more likely} for session than random chance, effectively isolating the "Elite" professional workflows from casual interaction.
 \end{itemize}
+
+In addition, interactive plot for session hyper-parameter turning was generated using \textbf{plotly} library. A static version of which is provided in \autoref{fig:plotly_session}.
 
 \subsection{Computational Performance Profiling}
 The use of the Core i9 architecture was instrumental during the tuning of session-level data. As $\sigma$ approached the $0.045$ elbow, the memory footprint of the candidate generation phase scaled exponentially. The 32GB RAM capacity allowed for the storage of high-cardinality itemsets in-memory, facilitating the rapid iterations required to find the optimal "Active Zone" of association rules without sacrificing the granularity of the discovery frontier.
